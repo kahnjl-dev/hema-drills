@@ -371,6 +371,23 @@ input[type="range"] { width: 100%; accent-color: var(--gold-fill); height: 32px;
     var options = list.length > 1 && avoid ? list.filter(function (x) { return x !== avoid; }) : list;
     return options[Math.floor(Math.random() * options.length)];
   }
+  // Choose the next defense, attack and resulting guard together. Picking each at random let
+  // the chaining starve some guards (finestra came up ~1.5% of the time, iron gate could vanish
+  // for 20+ exchanges), so prefer whatever has been called least this session; ties are random.
+  // Every candidate is still a move the drill logic allows.
+  function nextMove(guardKey, lastDef, used) {
+    var g = GUARDS[guardKey], moves = [];
+    var defs = g.def.length > 1 && lastDef ? g.def.filter(function (x) { return x !== lastDef; }) : g.def;
+    defs.forEach(function (d) {
+      FROM_POSITION[afterDefense(g, d)].forEach(function (a) {
+        if (d === "scambiar" && a === "punta") return;
+        ATTACKS[a].ends.forEach(function (e) { moves.push({ d: d, a: a, end: e }); });
+      });
+    });
+    function score(m) { return 2 * (used.guard[m.end] || 0) + (used.attack[m.a] || 0) + (used.def[m.d] || 0); }
+    var best = Math.min.apply(null, moves.map(score));
+    return pick(moves.filter(function (m) { return score(m) === best; }));
+  }
 
 
   // ---------- Figures ----------
@@ -686,21 +703,23 @@ input[type="range"] { width: 100%; accent-color: var(--gold-fill); height: 32px;
     activeMs = 0; exchanges = 0; lastTick = performance.now();
 
     var guardKey = pick(Object.keys(GUARDS));
-    var lastDef = null;
+    var lastDef = null, used = { guard: {}, attack: {}, def: {} };
     while (id === runId) {
       var g = GUARDS[guardKey];
+      used.guard[guardKey] = (used.guard[guardKey] || 0) + 1;
       if (!(await callOut({ phase: "Guard", clip: "g-" + guardKey, itLines: [g.it], enLines: [g.en], fig: { guard: guardKey } }, id))) return;
       if (!(await sleep(settings.speed * 1000, id, setGap))) return;
 
-      var d = pick(g.def, lastDef); lastDef = d;
-      var options = FROM_POSITION[afterDefense(g, d)].slice();
-      if (d === "scambiar") options = options.filter(function (k) { return k !== "punta"; });
-      var aKey = pick(options), a = ATTACKS[aKey];
+      var move = nextMove(guardKey, lastDef, used);
+      var d = move.d, aKey = move.a, a = ATTACKS[aKey];
+      lastDef = d;
+      used.def[d] = (used.def[d] || 0) + 1;
+      used.attack[aKey] = (used.attack[aKey] || 0) + 1;
       var D = DEFENSES[d];
       var enAttack = a.en.charAt(0).toUpperCase() + a.en.slice(1);
       if (!(await callOut({ phase: "Defend and strike", clip: "x-" + d + "-" + aKey, itLines: [D.it, a.it], enLines: [D.en, enAttack], fig: { guard: guardKey, attack: aKey } }, id))) return;
       exchanges++;
-      guardKey = pick(a.ends);
+      guardKey = move.end;
 
       var done = (durationCfg && durationCfg.n && exchanges >= durationCfg.n) ||
                  (durationCfg && durationCfg.ms && activeMs >= durationCfg.ms);
