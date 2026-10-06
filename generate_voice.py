@@ -1,20 +1,22 @@
-"""Generate ElevenLabs voice clips for every phrase drill-caller.html can say.
+"""Generate ElevenLabs voice clips for every call in drill-data.json.
 
-Reads the GUARDS / DEFENSES / ATTACKS / FROM_POSITION tables straight from the app so the
-clip set stays in sync, then writes one MP3 per phrase to voice-clips/. Existing clips are
-kept (re-runs only fill gaps) unless --force or --only is given.
+Writes one MP3 per call to voice-clips/ and records each clip's exact text in
+voice-clips/manifest.json. A clip is regenerated only when its text changes (compared
+ignoring case), so re-runs fill gaps and pick up wording edits without touching takes
+you've already approved. Identical phrases are generated once and copied.
 
 Clip keys (the app looks clips up by these):
-  g-<guard>-<lang>              guard call, e.g. g-finD-it
-  x-<defense>-<attack>-<lang>   defend-and-strike call, e.g. x-rebattere-mf-en
-  done-en                       end of session
+  g-<guard>-<lang>     guard call, e.g. g-finD-it
+  r-<remedy>-<lang>    defense-and-riposte (or thrust) call, e.g. r-tutta-cross-en
+  done-en              end of session
 """
-import argparse, io, json, os, re, sys
+import argparse, io, json, os, shutil, sys
 from elevenlabs import tts
 if sys.platform == "win32":
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 
-HTML, OUT_DIR = "drill-caller.html", "voice-clips"
+DATA_FILE, OUT_DIR = "drill-data.json", "voice-clips"
+MANIFEST = os.path.join(OUT_DIR, "manifest.json")
 MODEL = "eleven_v3"
 # Chosen by ear from voice-samples/: Arnold for Italian, Adam for English, both "punchy"
 # (exclamation marks + stability 0.0, the most expressive v3 setting).
@@ -23,66 +25,62 @@ SETTINGS = {"stability": 0.0}
 # Wording picked by ear for clips whose default take sounded off (see archive/voice-clips-replaced/).
 TEXT_OVERRIDES = {
     "done-en": "Done. Well fought.",
-    "g-bicorno-it": "Posta di Bicorno.",
-    "g-breve-it": "Posta Breve.",
-    "g-longa-it": "Posta Longa.",
+    "g-bicorno-it": "Posta di bicorno.",
+    "g-breve-it": "Posta breve.",
+    "g-longa-it": "Posta longa.",
 }
 # 64 kbps keeps the embedded file small; spoken calls don't need more.
 FORMAT = "mp3_44100_64"
 
-def read_tables(src):
-    def table(name):
-        body = re.search(r"var " + name + r" = \{(.*?)\n  \};", src, re.S)
-        if not body: raise SystemExit(f"Couldn't find the {name} table in {HTML}.")
-        return {m.group(1): {"it": m.group(2), "en": m.group(3), "rest": m.group(4)}
-                for m in re.finditer(r'(\w+):\s*\{\s*it: "([^"]+)",\s*en: "([^"]+)"(.*?)\}', body.group(1))}
-    from_pos = json.loads("{" + re.search(r"var FROM_POSITION = \{(.*?)\};", src, re.S).group(1).replace("\n", "") + "}")
-    return table("GUARDS"), table("DEFENSES"), table("ATTACKS"), from_pos
-
-def phrases(src):
-    """Every (key, lang, text) the app can speak, mirroring afterDefense() and the scambiar rule."""
-    guards, defenses, attacks, from_pos = read_tables(src)
-    flip = lambda s: {"R": "L", "L": "R"}.get(s, "C")
+def phrases(data):
+    """Every (key, lang, text) the app can speak."""
     out = []
-    combos = set()
-    for gk, g in guards.items():
+    for k, g in data["guards"].items():
         # English guards end in a period: with "!" Adam lifts the side ("…, left!") into an odd rising lilt.
-        out += [(f"g-{gk}-it", "it", g["it"] + "!"), (f"g-{gk}-en", "en", g["en"] + ".")]
-        h = re.search(r'h: "(\w+)"', g["rest"]).group(1); side = re.search(r's: "(\w)"', g["rest"]).group(1)
-        for d in re.findall(r'"(\w+)"', g["rest"].split("def:")[1]):
-            if d in ("incrosare", "scambiar") or h == "mid": pos = "mid-C"
-            else: pos = ("low-" if h == "high" else "high-") + flip(side)
-            combos.update((d, a) for a in from_pos[pos] if not (d == "scambiar" and a == "punta"))
-    for d, a in sorted(combos):
-        D, A = defenses[d], attacks[a]
-        out.append((f"x-{d}-{a}-it", "it", f"{D['it']}, {A['it']}!"))
-        out.append((f"x-{d}-{a}-en", "en", f"{D['en']}, then {A['en']}!"))  # matches the app's enJoined
+        out += [(f"g-{k}-it", "it", g["it"] + "!"), (f"g-{k}-en", "en", g["en"] + ".")]
+    for r in data["remedies"]:
+        it = ", ".join(l if i == 0 else l[0].lower() + l[1:] for i, l in enumerate(r["it"]))
+        en = ", then ".join(l if i == 0 else l[0].lower() + l[1:] for i, l in enumerate(r["en"]))  # matches the app's enJoined
+        out += [(f"r-{r['id']}-it", "it", it + "!"), (f"r-{r['id']}-en", "en", en + "!")]
     out.append(("done-en", "en", "Done!"))
     return [(k, lang, TEXT_OVERRIDES.get(k, text)) for k, lang, text in out]
 
 parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
 parser.add_argument("--dry-run", action="store_true", help="list what would be generated, call nothing")
 parser.add_argument("--verbose", action="store_true", help="print each phrase's text")
-parser.add_argument("--force", action="store_true", help="regenerate clips that already exist")
+parser.add_argument("--force", action="store_true", help="regenerate every clip")
 parser.add_argument("--only", nargs="+", metavar="KEY", help="regenerate just these clip keys (e.g. a bad take)")
 args = parser.parse_args()
 
-todo = phrases(open(HTML, encoding="utf-8").read())
-if args.only:
-    unknown = set(args.only) - {k for k, _, _ in todo}
-    if unknown: raise SystemExit(f"Unknown clip keys: {', '.join(sorted(unknown))}")
-    todo = [p for p in todo if p[0] in args.only]
-elif not args.force:
-    todo = [p for p in todo if not os.path.exists(f"{OUT_DIR}/{p[0]}.mp3")]
+all_phrases = phrases(json.load(open(DATA_FILE, encoding="utf-8")))
+manifest = json.load(open(MANIFEST, encoding="utf-8")) if os.path.exists(MANIFEST) else {}
+def current(key, text):
+    return os.path.exists(f"{OUT_DIR}/{key}.mp3") and manifest.get(key, "").lower() == text.lower()
 
-print(f"{len(todo)} clips to generate, {sum(len(t) for _, _, t in todo)} characters")
+if args.only:
+    unknown = set(args.only) - {k for k, _, _ in all_phrases}
+    if unknown: raise SystemExit(f"Unknown clip keys: {', '.join(sorted(unknown))}")
+    todo = [p for p in all_phrases if p[0] in args.only]
+elif args.force:
+    todo = all_phrases
+else:
+    todo = [p for p in all_phrases if not current(p[0], p[2])]
+
+unique = {(lang, text) for _, lang, text in todo}
+print(f"{len(todo)} clips to make, {len(unique)} distinct phrases, {sum(len(t) for _, t in unique)} characters")
 os.makedirs(OUT_DIR, exist_ok=True)
-failed = []
+made, failed = {}, []
 for key, lang, text in todo:
     if args.verbose or args.dry_run: print(f"  {key}: {text}")
     if args.dry_run: continue
     try:
-        open(f"{OUT_DIR}/{key}.mp3", "wb").write(tts(text, VOICE[lang], MODEL, lang, SETTINGS, FORMAT))
+        if (lang, text) in made: shutil.copyfile(made[(lang, text)], f"{OUT_DIR}/{key}.mp3")
+        else:
+            open(f"{OUT_DIR}/{key}.mp3", "wb").write(tts(text, VOICE[lang], MODEL, lang, SETTINGS, FORMAT))
+            made[(lang, text)] = f"{OUT_DIR}/{key}.mp3"
+        manifest[key] = text
     except Exception as e:
         failed.append(key); print(f"  FAILED {key}: {e}")
+if not args.dry_run:
+    json.dump(manifest, open(MANIFEST, "w", encoding="utf-8"), indent=1, ensure_ascii=False)
 if failed: sys.exit(f"{len(failed)} clips failed: {' '.join(failed)}. Re-run to retry just those.")

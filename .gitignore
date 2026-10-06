@@ -1,12 +1,13 @@
 # Allowlist: ignore everything, then add back only what is safe to publish.
-# Never commit: the ElevenLabs key file, the EPUB, book photos (epub-images/, guard-photos/),
-# the private build (drill-caller*.html), book notes, or audio archives.
+# Never commit: the ElevenLabs key file, the EPUB/PDF books, Swordsman's Companion photos
+# (epub-images/, guard-photos/), reference/ notes and videos, or audio archives.
 /*
 !/.gitignore
 !/README.md
 !/index.html
-!/fiore-drawings/
-!/build_public.py
+!/drill-caller.html
+!/drill-data.json
+!/photos/
+!/build.py
 !/elevenlabs.py
 !/generate_voice.py
-!/embed_voice.py
