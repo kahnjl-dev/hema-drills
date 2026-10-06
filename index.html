@@ -223,8 +223,8 @@ input[type="range"] { width: 100%; accent-color: var(--gold-fill); height: 32px;
 
   <section class="settings" id="settings">
     <div class="setting">
-      <h2>Speed <output id="speedOut"></output></h2>
-      <input type="range" id="speed" min="2" max="10" step="1" aria-label="Seconds between calls">
+      <h2>Delay <output id="speedOut"></output></h2>
+      <input type="range" id="speed" min="0" max="5" step="0.5" aria-label="Seconds between calls">
     </div>
     <div class="setting">
       <h2>Duration</h2>
@@ -421,8 +421,13 @@ input[type="range"] { width: 100%; accent-color: var(--gold-fill); height: 32px;
 
   var $ = function (id) { return document.getElementById(id); };
   var speedEl = $("speed"), speedOut = $("speedOut");
+  // The delay used to run 2–10 s; clamp settings saved under that range into the new 0–5 s.
+  settings.speed = Math.min(5, Math.max(0, +settings.speed || 0));
   speedEl.value = settings.speed;
-  function showSpeed() { speedOut.textContent = settings.speed + " seconds between calls"; }
+  function showSpeed() {
+    var s = settings.speed;
+    speedOut.textContent = s === 0 ? "no pause between calls" : s + (s === 1 ? " second" : " seconds") + " between calls";
+  }
   showSpeed();
   speedEl.addEventListener("input", function () { settings.speed = +speedEl.value; showSpeed(); save(); });
 
@@ -524,7 +529,7 @@ input[type="range"] { width: 100%; accent-color: var(--gold-fill); height: 32px;
         var now = performance.now();
         if (!paused) left -= now - last;
         last = now;
-        if (onProgress) onProgress(Math.min(1, 1 - left / ms));
+        if (onProgress) onProgress(ms > 0 ? Math.min(1, 1 - left / ms) : 1);  // a zero delay is instantly "full"
         if (left <= 0) { clearInterval(t); resolve(true); }
       }, 50);
     });
