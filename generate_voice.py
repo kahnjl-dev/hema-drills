@@ -61,13 +61,21 @@ unique = {(lang, text) for _, lang, text in todo}
 print(f"{len(todo)} clips to make, {len(unique)} distinct phrases, {sum(len(t) for _, t in unique)} characters")
 os.makedirs(OUT_DIR, exist_ok=True)
 made, failed = {}, []
+# Reuse any existing clip already made from the same voice, settings and text (e.g. the same
+# attack called from different guards), so only genuinely new phrases cost characters.
+for k, sig in manifest.items():
+    lang = k.rsplit("-", 1)[1]
+    text = sig.split("|", 3)[3] if sig.count("|") >= 3 else None
+    if text is not None and os.path.exists(f"{OUT_DIR}/{k}.mp3") and sig.lower() == signature(k, text).lower():
+        made.setdefault((lang, text), f"{OUT_DIR}/{k}.mp3")
 for key, lang, text in todo:
     if args.verbose or args.dry_run: print(f"  {key}: {text}")
     if args.dry_run: continue
     try:
         if (lang, text) in made: shutil.copyfile(made[(lang, text)], f"{OUT_DIR}/{key}.mp3")
         else:
-            open(f"{OUT_DIR}/{key}.mp3", "wb").write(tts(text, VOICE[lang], MODEL, lang, SETTINGS, FORMAT))
+            audio = tts(text, VOICE[lang], MODEL, lang, SETTINGS, FORMAT)  # fetch first: a failed request must not leave an empty file
+            open(f"{OUT_DIR}/{key}.mp3", "wb").write(audio)
             made[(lang, text)] = f"{OUT_DIR}/{key}.mp3"
         manifest[key] = signature(key, text)
     except Exception as e:

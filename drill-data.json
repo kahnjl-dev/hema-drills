@@ -382,6 +382,19 @@
       "about": "Withdraw to a guard, then the defense and riposte the book teaches for it. Randomized, every guard practiced evenly."
     },
     {
+      "id": "basics",
+      "type": "remedies",
+      "source": "attacks",
+      "name": "Basics: guards and attacks",
+      "about": "Beginner version. A guard, then an attack that guard is set up to throw, then a new guard. No defenses."
+    },
+    {
+      "id": "blocks",
+      "type": "glossary",
+      "name": "Building blocks",
+      "about": "An audio index: each term is spoken with its meaning. The written index is at the bottom of this page."
+    },
+    {
       "id": "cutting",
       "type": "sequence",
       "name": "Cutting Drill, Part One",
@@ -836,6 +849,498 @@
           "stage": 5
         }
       ]
+    }
+  ],
+  "_attacks": "Beginner list: from each guard, only the attacks it is set up to throw, no defenses. Same shape as remedies. Endpoints follow the opposite-corner rule; tutta's options follow Guy's email (chambered for mandritto sottano, fendente and the thrust); bicorno's thrust ends in bicorno.",
+  "attacks": [
+    {
+      "id": "a-donnaD-mf",
+      "guard": "donnaD",
+      "vs": "Your attack",
+      "it": [
+        "Mandritto fendente, passare"
+      ],
+      "en": [
+        "Forehand downward cut, with a pass"
+      ],
+      "cut": "mf",
+      "ends": "dente"
+    },
+    {
+      "id": "a-donnaD-thrust",
+      "guard": "donnaD",
+      "vs": "Your attack",
+      "it": [
+        "Punta, passare"
+      ],
+      "en": [
+        "Thrust, with a pass"
+      ],
+      "cut": "punta",
+      "ends": "longa"
+    },
+    {
+      "id": "a-donnaS-rf",
+      "guard": "donnaS",
+      "vs": "Your attack",
+      "it": [
+        "Roverso fendente, passare"
+      ],
+      "en": [
+        "Backhand downward cut, with a pass"
+      ],
+      "cut": "rf",
+      "ends": "tutta"
+    },
+    {
+      "id": "a-donnaS-thrust",
+      "guard": "donnaS",
+      "vs": "Your attack",
+      "it": [
+        "Punta, passare"
+      ],
+      "en": [
+        "Thrust, with a pass"
+      ],
+      "cut": "punta",
+      "ends": "longa"
+    },
+    {
+      "id": "a-finD-mf",
+      "guard": "finD",
+      "vs": "Your attack",
+      "it": [
+        "Mandritto fendente, passare"
+      ],
+      "en": [
+        "Forehand downward cut, with a pass"
+      ],
+      "cut": "mf",
+      "ends": "dente"
+    },
+    {
+      "id": "a-finD-thrust",
+      "guard": "finD",
+      "vs": "Your attack",
+      "it": [
+        "Punta, passare"
+      ],
+      "en": [
+        "Thrust, with a pass"
+      ],
+      "cut": "punta",
+      "ends": "longa"
+    },
+    {
+      "id": "a-finS-rf",
+      "guard": "finS",
+      "vs": "Your attack",
+      "it": [
+        "Roverso fendente, passare"
+      ],
+      "en": [
+        "Backhand downward cut, with a pass"
+      ],
+      "cut": "rf",
+      "ends": "tutta"
+    },
+    {
+      "id": "a-finS-thrust",
+      "guard": "finS",
+      "vs": "Your attack",
+      "it": [
+        "Punta, passare"
+      ],
+      "en": [
+        "Thrust, with a pass"
+      ],
+      "cut": "punta",
+      "ends": "longa"
+    },
+    {
+      "id": "a-tutta-ms",
+      "guard": "tutta",
+      "vs": "Your attack",
+      "it": [
+        "Mandritto sottano, passare"
+      ],
+      "en": [
+        "Forehand rising cut, with a pass"
+      ],
+      "cut": "ms",
+      "ends": "donnaS"
+    },
+    {
+      "id": "a-tutta-mf",
+      "guard": "tutta",
+      "vs": "Your attack",
+      "it": [
+        "Mandritto fendente, passare"
+      ],
+      "en": [
+        "Forehand downward cut, with a pass"
+      ],
+      "cut": "mf",
+      "ends": "dente"
+    },
+    {
+      "id": "a-tutta-thrust",
+      "guard": "tutta",
+      "vs": "Your attack",
+      "it": [
+        "Punta, passare"
+      ],
+      "en": [
+        "Thrust, with a pass"
+      ],
+      "cut": "punta",
+      "ends": "longa"
+    },
+    {
+      "id": "a-coda-ms",
+      "guard": "coda",
+      "vs": "Your attack",
+      "it": [
+        "Mandritto sottano, passare"
+      ],
+      "en": [
+        "Forehand rising cut, with a pass"
+      ],
+      "cut": "ms",
+      "ends": "donnaS"
+    },
+    {
+      "id": "a-coda-thrust",
+      "guard": "coda",
+      "vs": "Your attack",
+      "it": [
+        "Punta, passare"
+      ],
+      "en": [
+        "Thrust, with a pass"
+      ],
+      "cut": "punta",
+      "ends": "longa"
+    },
+    {
+      "id": "a-dente-rs",
+      "guard": "dente",
+      "vs": "Your attack",
+      "it": [
+        "Roverso sottano, passare"
+      ],
+      "en": [
+        "Backhand rising cut, with a pass"
+      ],
+      "cut": "rs",
+      "ends": "donnaD"
+    },
+    {
+      "id": "a-dente-thrust",
+      "guard": "dente",
+      "vs": "Your attack",
+      "it": [
+        "Punta, passare"
+      ],
+      "en": [
+        "Thrust, with a pass"
+      ],
+      "cut": "punta",
+      "ends": "longa"
+    },
+    {
+      "id": "a-denteMezana-rs",
+      "guard": "denteMezana",
+      "vs": "Your attack",
+      "it": [
+        "Roverso sottano, passare"
+      ],
+      "en": [
+        "Backhand rising cut, with a pass"
+      ],
+      "cut": "rs",
+      "ends": "donnaD"
+    },
+    {
+      "id": "a-denteMezana-thrust",
+      "guard": "denteMezana",
+      "vs": "Your attack",
+      "it": [
+        "Punta, passare"
+      ],
+      "en": [
+        "Thrust, with a pass"
+      ],
+      "cut": "punta",
+      "ends": "longa"
+    },
+    {
+      "id": "a-mezana-thrust",
+      "guard": "mezana",
+      "vs": "Your attack",
+      "it": [
+        "Punta, passare"
+      ],
+      "en": [
+        "Thrust, with a pass"
+      ],
+      "cut": "punta",
+      "ends": "longa"
+    },
+    {
+      "id": "a-longa-thrust",
+      "guard": "longa",
+      "vs": "Your attack",
+      "it": [
+        "Punta, passare"
+      ],
+      "en": [
+        "Thrust, with a pass"
+      ],
+      "cut": "punta",
+      "ends": "longa"
+    },
+    {
+      "id": "a-longa-mf",
+      "guard": "longa",
+      "vs": "Your attack",
+      "it": [
+        "Mandritto fendente, passare"
+      ],
+      "en": [
+        "Forehand downward cut, with a pass"
+      ],
+      "cut": "mf",
+      "ends": "dente"
+    },
+    {
+      "id": "a-longa-rf",
+      "guard": "longa",
+      "vs": "Your attack",
+      "it": [
+        "Roverso fendente, passare"
+      ],
+      "en": [
+        "Backhand downward cut, with a pass"
+      ],
+      "cut": "rf",
+      "ends": "tutta"
+    },
+    {
+      "id": "a-breve-thrust",
+      "guard": "breve",
+      "vs": "Your attack",
+      "it": [
+        "Punta, passare"
+      ],
+      "en": [
+        "Thrust, with a pass"
+      ],
+      "cut": "punta",
+      "ends": "longa"
+    },
+    {
+      "id": "a-breve-mf",
+      "guard": "breve",
+      "vs": "Your attack",
+      "it": [
+        "Mandritto fendente, passare"
+      ],
+      "en": [
+        "Forehand downward cut, with a pass"
+      ],
+      "cut": "mf",
+      "ends": "dente"
+    },
+    {
+      "id": "a-breve-rf",
+      "guard": "breve",
+      "vs": "Your attack",
+      "it": [
+        "Roverso fendente, passare"
+      ],
+      "en": [
+        "Backhand downward cut, with a pass"
+      ],
+      "cut": "rf",
+      "ends": "tutta"
+    },
+    {
+      "id": "a-bicorno-thrust",
+      "guard": "bicorno",
+      "vs": "Your attack",
+      "it": [
+        "Punta, passare"
+      ],
+      "en": [
+        "Thrust, with a pass"
+      ],
+      "cut": "punta",
+      "ends": "bicorno"
+    }
+  ],
+  "_terms": "Building blocks glossary: spoken by the Building blocks drill and shown as the written index.",
+  "terms": [
+    {
+      "group": "Cuts",
+      "id": "mandritto",
+      "it": "Mandritto",
+      "en": "Forehand",
+      "means": "A cut from your right side."
+    },
+    {
+      "group": "Cuts",
+      "id": "roverso",
+      "it": "Roverso",
+      "en": "Backhand",
+      "means": "A cut from your left side."
+    },
+    {
+      "group": "Cuts",
+      "id": "fendente",
+      "it": "Fendente",
+      "en": "Downward cut",
+      "means": "Cuts diagonally down, from a shoulder to the opposite hip."
+    },
+    {
+      "group": "Cuts",
+      "id": "sottano",
+      "it": "Sottano",
+      "en": "Rising cut",
+      "means": "Cuts diagonally up, from a hip to the opposite shoulder."
+    },
+    {
+      "group": "Cuts",
+      "id": "mezano",
+      "it": "Mezano",
+      "en": "Level cut",
+      "means": "Cuts horizontally across."
+    },
+    {
+      "group": "Cuts",
+      "id": "punta",
+      "it": "Punta",
+      "en": "Thrust",
+      "means": "Drive the point straight at him."
+    },
+    {
+      "group": "Cuts",
+      "id": "half",
+      "it": "",
+      "en": "Half cut",
+      "means": "Stop with your arms extended at him, in long guard, instead of following through."
+    },
+    {
+      "group": "Cuts",
+      "id": "full",
+      "it": "",
+      "en": "Full cut",
+      "means": "Follow through to the opposite corner: a cut from high right ends low left."
+    },
+    {
+      "group": "Sword",
+      "id": "truedge",
+      "it": "Filo dritto",
+      "en": "True edge",
+      "means": "The front edge of the blade, the one facing him."
+    },
+    {
+      "group": "Sword",
+      "id": "falso",
+      "it": "Falso",
+      "en": "False edge",
+      "means": "The back edge of the blade, the one facing you."
+    },
+    {
+      "group": "Footwork",
+      "id": "pass",
+      "it": "Passare",
+      "en": "Pass",
+      "means": "Step forward with your back foot, so it becomes your front foot."
+    },
+    {
+      "group": "Footwork",
+      "id": "offline",
+      "it": "Accrescere fora di strada",
+      "en": "Step off the line",
+      "means": "Move your front foot sideways, out of the line of his attack."
+    },
+    {
+      "group": "Footwork",
+      "id": "across",
+      "it": "Passo ala traversa",
+      "en": "Pass across",
+      "means": "Pass diagonally, crossing in front of you."
+    },
+    {
+      "group": "Footwork",
+      "id": "outofway",
+      "it": "Passare fora di strada",
+      "en": "Pass out of the way",
+      "means": "Pass diagonally to the side, away from his blade."
+    },
+    {
+      "group": "Footwork",
+      "id": "vstabile",
+      "it": "Volta stabile",
+      "en": "Stable turn",
+      "means": "Turn your hips and feet in place to change sides, without stepping."
+    },
+    {
+      "group": "Footwork",
+      "id": "mvolta",
+      "it": "Mezza volta",
+      "en": "Half turn",
+      "means": "A pass forward or back that brings the other side forward."
+    },
+    {
+      "group": "Footwork",
+      "id": "tvolta",
+      "it": "Tutta volta",
+      "en": "Full turn",
+      "means": "Turn all the way round."
+    },
+    {
+      "group": "Defenses",
+      "id": "cross",
+      "it": "Incrosare",
+      "en": "Cross",
+      "means": "Meet his blade with yours, middle to middle, usually by raising your sword into front guard."
+    },
+    {
+      "group": "Defenses",
+      "id": "beat",
+      "it": "Rebattere",
+      "en": "Beat aside",
+      "means": "Knock his sword out of the way, then strike."
+    },
+    {
+      "group": "Defenses",
+      "id": "exchange",
+      "it": "Scambiare di punta",
+      "en": "Exchange the thrust",
+      "means": "Against a thrust: thrust back, so your blade pushes his aside as your point lands."
+    },
+    {
+      "group": "Defenses",
+      "id": "break",
+      "it": "Rompere di punta",
+      "en": "Break the thrust",
+      "means": "Against a thrust: strike his blade down toward the floor, step off the line and pass across, then cut."
+    },
+    {
+      "group": "Defenses",
+      "id": "counter",
+      "it": "Contrataglio",
+      "en": "Counterattack",
+      "means": "Cut into his cut, so your sword blocks his and hits him at the same time."
+    },
+    {
+      "group": "Defenses",
+      "id": "riposte",
+      "it": "",
+      "en": "Riposte",
+      "means": "Your strike after a successful defense."
     }
   ]
 }

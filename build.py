@@ -26,12 +26,13 @@ data = json.load(open(DATA_FILE, encoding="utf-8"))
 guards, remedies = data["guards"], data["remedies"]
 
 # Check the data hangs together before building on it.
-for r in remedies:
+for r in remedies + data.get("attacks", []):
     for field in ("guard", "ends"):
         if r[field] not in guards: fail(f"remedy '{r['id']}' has unknown {field} '{r[field]}' in {DATA_FILE}")
     if len(r["it"]) != len(r["en"]): fail(f"remedy '{r['id']}' has {len(r['it'])} Italian lines but {len(r['en'])} English")
 for dr in data.get("drills", []):
-    if dr["type"] not in ("remedies", "sequence", "outcomes", "staged"): fail(f"drill '{dr['id']}' has unknown type '{dr['type']}'")
+    if dr["type"] == "remedies" and dr.get("source", "remedies") not in data: fail(f"drill '{dr['id']}' reads missing list '{dr['source']}'")
+    if dr["type"] not in ("remedies", "sequence", "outcomes", "staged", "glossary"): fail(f"drill '{dr['id']}' has unknown type '{dr['type']}'")
     for key, st in drill_clips.drill_steps(dr):
         for field in ("guard", "show", "ends"):
             if field in st and st[field] not in guards: fail(f"{key}: unknown {field} '{st[field]}'")
