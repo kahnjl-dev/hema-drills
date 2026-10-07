@@ -373,7 +373,7 @@
       "ends": "bicorno"
     }
   ],
-  "_drills": "Selectable drills. type 'remedies' = random guard then a remedy from that guard. type 'sequence' = fixed steps spoken in order and looped; a step with once=true is only called on the first round. A step shows a guard photo (guard) or the cut diagram (cut, ends).",
+  "_drills": "Selectable drills. type 'remedies' = random guard then a remedy from that guard. 'sequence' = fixed steps spoken in order and looped; once=true steps are only called on the first round. 'outcomes' = each round picks one outcome (balanced) and speaks its steps; vs is shown on screen. 'staged' = random calls from a pool that grows: items with stage n join after perStage*(n-1) calls. A step shows a guard photo (guard, or show to display a guard while speaking its own text) or the cut diagram (cut, ends); otherwise text only.",
   "drills": [
     {
       "id": "remedies",
@@ -541,6 +541,299 @@
           "en": "Forehand downward cut, with a pass",
           "cut": "mf",
           "ends": "dente"
+        }
+      ]
+    },
+    {
+      "id": "fourguards",
+      "type": "sequence",
+      "name": "Four guards drill (unarmed)",
+      "pages": "TML p. 69-70; confirmed against the wiki video (no narration)",
+      "about": "No sword. Longa, boar's tooth, frontale and porta di ferro, linked by stable and half turns. Each round ends on the other side; just keep mirroring.",
+      "steps": [
+        {
+          "it": "Posta longa, mano e piede destro avanti",
+          "en": "Long guard, right hand and foot forward",
+          "once": true
+        },
+        {
+          "it": "Fissa la linea",
+          "en": "Set your line",
+          "once": true
+        },
+        {
+          "it": "Volta stabile, posta longa",
+          "en": "Stable turn, long guard"
+        },
+        {
+          "it": "Volta stabile, posta longa",
+          "en": "Stable turn, long guard"
+        },
+        {
+          "it": "Mezza volta, posta longa",
+          "en": "Half turn, long guard"
+        },
+        {
+          "it": "Volta stabile, dente di zenghiaro",
+          "en": "Stable turn, boar's tooth"
+        },
+        {
+          "it": "Volta stabile, dente di zenghiaro",
+          "en": "Stable turn, boar's tooth"
+        },
+        {
+          "it": "Mezza volta, dente di zenghiaro",
+          "en": "Half turn, boar's tooth"
+        },
+        {
+          "it": "Volta stabile, posta frontale",
+          "en": "Stable turn, front guard"
+        },
+        {
+          "it": "Volta stabile, porta di ferro",
+          "en": "Stable turn, iron door"
+        },
+        {
+          "it": "Mezza volta, posta frontale",
+          "en": "Half turn, front guard"
+        },
+        {
+          "it": "Volta stabile, porta di ferro",
+          "en": "Stable turn, iron door"
+        },
+        {
+          "it": "Volta stabile, posta longa",
+          "en": "Stable turn, long guard"
+        }
+      ]
+    },
+    {
+      "id": "siohparry",
+      "type": "sequence",
+      "name": "Sword in one hand: the parry",
+      "pages": "TML p. 147-151; wiki video, Guy's narration",
+      "about": "Rear-weighted guard with the sword in one hand. Parry up into fenestra stepping to the side, turn around the middle of the sword to strike, back to guard.",
+      "steps": [
+        {
+          "it": "Posta della spada in una mano",
+          "en": "Guard of the sword in one hand",
+          "once": true
+        },
+        {
+          "it": "Coverta in fenestra, accrescere fora di strada",
+          "en": "Parry: rising cut into fenestra, step to the side",
+          "cut": "rs"
+        },
+        {
+          "it": "Mandritto fendente",
+          "en": "Strike: forehand downward cut",
+          "cut": "mf"
+        },
+        {
+          "it": "Torna in guardia",
+          "en": "Back to guard"
+        }
+      ]
+    },
+    {
+      "id": "siohplays",
+      "type": "outcomes",
+      "name": "Sword in one hand: the plays",
+      "pages": "TML p. 147-151; wiki videos for plays 1-10, Guy's narration",
+      "about": "Parry from the guard of the sword in one hand, then a follow-up from Fiore's plays: what you do depends on what his sword does. Best with a partner.",
+      "start": [
+        {
+          "it": "Posta della spada in una mano",
+          "en": "Guard of the sword in one hand"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "p1",
+          "play": "1st",
+          "vs": "Against a cut",
+          "steps": [
+            {
+              "it": "Coverta in fenestra, accrescere fora di strada",
+              "en": "Parry: rising cut into fenestra, step to the side",
+              "cut": "rs"
+            },
+            {
+              "it": "Battuta larga, mandritto fendente alla testa",
+              "en": "Beaten wide: strike him in the head",
+              "cut": "mf"
+            }
+          ]
+        },
+        {
+          "id": "p2",
+          "play": "2nd",
+          "vs": "Against a cut",
+          "steps": [
+            {
+              "it": "Coverta in fenestra, accrescere fora di strada",
+              "en": "Parry: rising cut into fenestra, step to the side",
+              "cut": "rs"
+            },
+            {
+              "it": "Incrosada ferma, entra e colpisci",
+              "en": "Stuck in the middle: enter and strike"
+            }
+          ]
+        },
+        {
+          "id": "p3",
+          "play": "3rd",
+          "vs": "Against a cut",
+          "steps": [
+            {
+              "it": "Coverta in fenestra, accrescere fora di strada",
+              "en": "Parry: rising cut into fenestra, step to the side",
+              "cut": "rs"
+            },
+            {
+              "it": "Si ritira, inseguilo",
+              "en": "Stuck, and he pulls back: chase him"
+            }
+          ]
+        },
+        {
+          "id": "p4",
+          "play": "4th",
+          "vs": "Against a cut",
+          "steps": [
+            {
+              "it": "Coverta in fenestra, accrescere fora di strada",
+              "en": "Parry: rising cut into fenestra, step to the side",
+              "cut": "rs"
+            },
+            {
+              "it": "Spinge dentro, abbraccialo",
+              "en": "Stuck, and he pushes in: wrap him up"
+            }
+          ]
+        },
+        {
+          "id": "p5",
+          "play": "5th",
+          "vs": "Against a cut",
+          "steps": [
+            {
+              "it": "Coverta in fenestra, accrescere fora di strada",
+              "en": "Parry: rising cut into fenestra, step to the side",
+              "cut": "rs"
+            },
+            {
+              "it": "Prendi il pomo, togli la spada",
+              "en": "Beat it away: catch his pommel, take his sword"
+            }
+          ]
+        },
+        {
+          "id": "p67",
+          "play": "6th and 7th",
+          "vs": "Against a cut",
+          "steps": [
+            {
+              "it": "Coverta in fenestra, accrescere fora di strada",
+              "en": "Parry: rising cut into fenestra, step to the side",
+              "cut": "rs"
+            },
+            {
+              "it": "Gira il gomito, taglia la gola",
+              "en": "He comes in: turn his elbow, get behind, cut the throat"
+            }
+          ]
+        },
+        {
+          "id": "p10",
+          "play": "10th",
+          "vs": "Against a cut to the head",
+          "steps": [
+            {
+              "it": "Coverta, spada a terra",
+              "en": "Parry: drive his sword to the ground",
+              "cut": "mf"
+            },
+            {
+              "it": "Controlla e colpisci",
+              "en": "Control him and strike"
+            }
+          ]
+        },
+        {
+          "id": "p89",
+          "play": "8th and 9th",
+          "vs": "Against a thrust",
+          "steps": [
+            {
+              "it": "Rompere di punta, accrescere",
+              "en": "Break the thrust, step to the side",
+              "cut": "mf"
+            },
+            {
+              "it": "Controlla il gomito, entra e abbatti",
+              "en": "Control his elbow, step in for the takedown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "grips",
+      "type": "staged",
+      "name": "Six grips handling drill",
+      "pages": "wiki Sword handling drill 3; Guy's narration; TML p. 139-140",
+      "about": "Fiore's six ways of holding the sword, called at random. Starts with two grips and adds one every few calls; then switch hands.",
+      "perStage": 8,
+      "start": [
+        {
+          "it": "Presa normale",
+          "en": "Normal grip"
+        }
+      ],
+      "pool": [
+        {
+          "it": "Presa normale",
+          "en": "Normal grip",
+          "id": "normal",
+          "stage": 1
+        },
+        {
+          "it": "Spada in arme, mezza spada",
+          "en": "Sword in armour: hand to the middle of the blade",
+          "id": "armour",
+          "stage": 1
+        },
+        {
+          "it": "Punta lunga, al pomo",
+          "en": "Long thrust: hand to the pommel",
+          "id": "pommel",
+          "stage": 2
+        },
+        {
+          "it": "Come un'ascia",
+          "en": "Like an axe: hold it by the blade",
+          "id": "axe",
+          "stage": 3
+        },
+        {
+          "it": "Da lanciare",
+          "en": "Ready to throw",
+          "id": "throw",
+          "stage": 4
+        },
+        {
+          "it": "Spada in una mano",
+          "en": "Sword in one hand",
+          "id": "onehand",
+          "stage": 4
+        },
+        {
+          "it": "Cambia mano",
+          "en": "Switch hands",
+          "id": "switch",
+          "stage": 5
         }
       ]
     }

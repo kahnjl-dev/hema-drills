@@ -6,6 +6,7 @@ Re-runnable: each embedded block is replaced, never duplicated.
 """
 import argparse, base64, io, json, os, re, sys
 from PIL import Image
+import drill_clips
 if sys.platform == "win32":
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 
@@ -30,11 +31,11 @@ for r in remedies:
         if r[field] not in guards: fail(f"remedy '{r['id']}' has unknown {field} '{r[field]}' in {DATA_FILE}")
     if len(r["it"]) != len(r["en"]): fail(f"remedy '{r['id']}' has {len(r['it'])} Italian lines but {len(r['en'])} English")
 for dr in data.get("drills", []):
-    if dr["type"] not in ("remedies", "sequence"): fail(f"drill '{dr['id']}' has unknown type '{dr['type']}'")
-    for i, st in enumerate(dr.get("steps", [])):
-        for field in ("guard", "ends"):
-            if field in st and st[field] not in guards: fail(f"drill '{dr['id']}' step {i} has unknown {field} '{st[field]}'")
-        if "guard" not in st and "cut" not in st: fail(f"drill '{dr['id']}' step {i} needs a guard or a cut")
+    if dr["type"] not in ("remedies", "sequence", "outcomes", "staged"): fail(f"drill '{dr['id']}' has unknown type '{dr['type']}'")
+    for key, st in drill_clips.drill_steps(dr):
+        for field in ("guard", "show", "ends"):
+            if field in st and st[field] not in guards: fail(f"{key}: unknown {field} '{st[field]}'")
+        if "guard" not in st and not (st.get("it") and st.get("en")): fail(f"{key}: a step needs a guard or its own it/en text")
 
 # --- Guard photos ---
 photos = {}
@@ -47,8 +48,8 @@ for g in guards.values():
     photos[name] = {"src": "data:image/jpeg;base64," + base64.b64encode(open(path, "rb").read()).decode(), "w": w, "h": h}
 
 # --- Voice clips: only the keys the data actually uses ---
-needed = ["done-en"] + [f"g-{k}-{l}" for k in guards for l in ("it", "en")] + [f"r-{r['id']}-{l}" for r in remedies for l in ("it", "en")]
-needed += [f"s-{dr['id']}-{i}-{l}" for dr in data.get("drills", []) for i, st in enumerate(dr.get("steps", [])) if "guard" not in st for l in ("it", "en")]
+# Every clip the app can play; drill_clips.py is shared with generate_voice.py.
+needed = [key for key, _, _ in drill_clips.phrases(data)]
 clips, missing, first_with = {}, [], {}
 for key in needed:
     path = os.path.join(CLIP_DIR, key + ".mp3")

@@ -13,6 +13,7 @@ Clip keys (the app looks clips up by these):
 """
 import argparse, io, json, os, shutil, sys
 from elevenlabs import tts
+import drill_clips
 if sys.platform == "win32":
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 
@@ -28,20 +29,8 @@ TEXT_OVERRIDES = {"done-en": "Done, well fought"}
 FORMAT = "mp3_44100_64"
 
 def phrases(data):
-    """Every (key, lang, text) the app can speak."""
-    out = []
-    for k, g in data["guards"].items():
-        out += [(f"g-{k}-it", "it", g["it"]), (f"g-{k}-en", "en", g["en"])]
-    for r in data["remedies"]:
-        it = ", ".join(l if i == 0 else l[0].lower() + l[1:] for i, l in enumerate(r["it"]))
-        en = ", then ".join(l if i == 0 else l[0].lower() + l[1:] for i, l in enumerate(r["en"]))  # matches the app's enJoined
-        out += [(f"r-{r['id']}-it", "it", it), (f"r-{r['id']}-en", "en", en)]
-    for drill in data.get("drills", []):
-        for i, step in enumerate(drill.get("steps", [])):
-            if "guard" in step: continue  # spoken with the guard's own clip
-            out += [(f"s-{drill['id']}-{i}-it", "it", step["it"]), (f"s-{drill['id']}-{i}-en", "en", step["en"])]
-    out.append(("done-en", "en", "Done"))
-    return [(k, lang, TEXT_OVERRIDES.get(k, text)) for k, lang, text in out]
+    """Every (key, lang, text) the app can speak (see drill_clips.py), with wording overrides."""
+    return [(k, lang, TEXT_OVERRIDES.get(k, text)) for k, lang, text in drill_clips.phrases(data)]
 
 parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
 parser.add_argument("--dry-run", action="store_true", help="list what would be generated, call nothing")
