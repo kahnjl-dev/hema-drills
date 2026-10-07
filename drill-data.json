@@ -372,5 +372,177 @@
       "cut": "punta",
       "ends": "bicorno"
     }
+  ],
+  "_drills": "Selectable drills. type 'remedies' = random guard then a remedy from that guard. type 'sequence' = fixed steps spoken in order and looped; a step with once=true is only called on the first round. A step shows a guard photo (guard) or the cut diagram (cut, ends).",
+  "drills": [
+    {
+      "id": "remedies",
+      "type": "remedies",
+      "name": "Guards and remedies",
+      "about": "Withdraw to a guard, then the defense and riposte the book teaches for it. Randomized, every guard practiced evenly."
+    },
+    {
+      "id": "cutting",
+      "type": "sequence",
+      "name": "Cutting Drill, Part One",
+      "pages": "TML p. 119",
+      "about": "Full and half cuts through all four corners, with a pass on every cut.",
+      "steps": [
+        {
+          "it": "Posta di donna destra",
+          "en": "Woman's guard, right",
+          "guard": "donnaD",
+          "once": true
+        },
+        {
+          "it": "Mandritto fendente, passare",
+          "en": "Full forehand downward cut, with a pass",
+          "cut": "mf",
+          "ends": "dente"
+        },
+        {
+          "it": "Roverso sottano di falso, passare",
+          "en": "Backhand rising cut, false edge, with a pass",
+          "cut": "rs",
+          "ends": "longa"
+        },
+        {
+          "it": "Posta di donna destra",
+          "en": "Woman's guard, right",
+          "guard": "donnaD"
+        },
+        {
+          "it": "Mandritto fendente in posta longa, passare",
+          "en": "Half forehand downward cut, with a pass",
+          "cut": "mf",
+          "ends": "longa"
+        },
+        {
+          "it": "Posta di donna la sinestra",
+          "en": "Woman's guard, left",
+          "guard": "donnaS"
+        },
+        {
+          "it": "Roverso fendente, passare",
+          "en": "Full backhand downward cut, with a pass",
+          "cut": "rf",
+          "ends": "tutta"
+        },
+        {
+          "it": "Mandritto sottano di falso, passare",
+          "en": "Forehand rising cut, false edge, with a pass",
+          "cut": "ms",
+          "ends": "longa"
+        },
+        {
+          "it": "Posta di donna la sinestra",
+          "en": "Woman's guard, left",
+          "guard": "donnaS"
+        },
+        {
+          "it": "Roverso fendente in posta longa, passare",
+          "en": "Half backhand downward cut, with a pass",
+          "cut": "rf",
+          "ends": "longa"
+        },
+        {
+          "it": "Posta di donna destra",
+          "en": "Woman's guard, right",
+          "guard": "donnaD"
+        }
+      ]
+    },
+    {
+      "id": "updown",
+      "type": "sequence",
+      "name": "Up, down, around, around",
+      "pages": "Swordschool wiki; sequence from Jordan",
+      "about": "Wrist and arm handling drill, no steps: two downward cuts and a rising cut on the right, then the same on the left.",
+      "steps": [
+        {
+          "it": "Mandritto fendente",
+          "en": "Forehand downward cut",
+          "cut": "mf"
+        },
+        {
+          "it": "Mandritto fendente",
+          "en": "Forehand downward cut",
+          "cut": "mf"
+        },
+        {
+          "it": "Mandritto sottano",
+          "en": "Forehand rising cut",
+          "cut": "ms"
+        },
+        {
+          "it": "Roverso fendente",
+          "en": "Backhand downward cut",
+          "cut": "rf"
+        },
+        {
+          "it": "Roverso fendente",
+          "en": "Backhand downward cut",
+          "cut": "rf"
+        },
+        {
+          "it": "Roverso sottano",
+          "en": "Backhand rising cut",
+          "cut": "rs"
+        }
+      ]
+    },
+    {
+      "id": "farfalle",
+      "type": "sequence",
+      "name": "Farfalle di Ferro, parts 1 and 2",
+      "pages": "Swordschool wiki, Farfalle di Ferro",
+      "about": "The iron butterfly: downward cut, high thrust from the other side, downward cut, then the mirror image from the left.",
+      "steps": [
+        {
+          "it": "Posta di donna destra",
+          "en": "Woman's guard, right",
+          "guard": "donnaD"
+        },
+        {
+          "it": "Mandritto fendente, passare",
+          "en": "Forehand downward cut, with a pass",
+          "cut": "mf",
+          "ends": "dente"
+        },
+        {
+          "it": "Roverso punta, alta",
+          "en": "High backhand thrust",
+          "cut": "punta"
+        },
+        {
+          "it": "Roverso fendente, passare",
+          "en": "Backhand downward cut, with a pass",
+          "cut": "rf",
+          "ends": "tutta"
+        },
+        {
+          "it": "Posta di donna la sinestra",
+          "en": "Woman's guard, left",
+          "guard": "donnaS"
+        },
+        {
+          "it": "Roverso fendente, passare",
+          "en": "Backhand downward cut, with a pass",
+          "cut": "rf",
+          "ends": "tutta"
+        },
+        {
+          "it": "Mandritto punta, alta",
+          "en": "High forehand thrust",
+          "cut": "punta"
+        },
+        {
+          "it": "Mandritto fendente, passare",
+          "en": "Forehand downward cut, with a pass",
+          "cut": "mf",
+          "ends": "dente"
+        }
+      ]
+    }
   ]
 }

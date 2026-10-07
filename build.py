@@ -29,6 +29,12 @@ for r in remedies:
     for field in ("guard", "ends"):
         if r[field] not in guards: fail(f"remedy '{r['id']}' has unknown {field} '{r[field]}' in {DATA_FILE}")
     if len(r["it"]) != len(r["en"]): fail(f"remedy '{r['id']}' has {len(r['it'])} Italian lines but {len(r['en'])} English")
+for dr in data.get("drills", []):
+    if dr["type"] not in ("remedies", "sequence"): fail(f"drill '{dr['id']}' has unknown type '{dr['type']}'")
+    for i, st in enumerate(dr.get("steps", [])):
+        for field in ("guard", "ends"):
+            if field in st and st[field] not in guards: fail(f"drill '{dr['id']}' step {i} has unknown {field} '{st[field]}'")
+        if "guard" not in st and "cut" not in st: fail(f"drill '{dr['id']}' step {i} needs a guard or a cut")
 
 # --- Guard photos ---
 photos = {}
@@ -42,11 +48,15 @@ for g in guards.values():
 
 # --- Voice clips: only the keys the data actually uses ---
 needed = ["done-en"] + [f"g-{k}-{l}" for k in guards for l in ("it", "en")] + [f"r-{r['id']}-{l}" for r in remedies for l in ("it", "en")]
-clips, missing = {}, []
+needed += [f"s-{dr['id']}-{i}-{l}" for dr in data.get("drills", []) for i, st in enumerate(dr.get("steps", [])) if "guard" not in st for l in ("it", "en")]
+clips, missing, first_with = {}, [], {}
 for key in needed:
     path = os.path.join(CLIP_DIR, key + ".mp3")
-    if os.path.exists(path): clips[key] = "data:audio/mpeg;base64," + base64.b64encode(open(path, "rb").read()).decode()
-    else: missing.append(key)
+    if not os.path.exists(path): missing.append(key); continue
+    raw = open(path, "rb").read()
+    # Many calls share a recording (the same phrase from different guards); embed it once.
+    if raw in first_with: clips[key] = "@" + first_with[raw]
+    else: first_with[raw] = key; clips[key] = "data:audio/mpeg;base64," + base64.b64encode(raw).decode()
 
 # --- Splice into the page ---
 src = open(SOURCE, encoding="utf-8").read()
@@ -78,7 +88,7 @@ if os.path.isdir(COMPANION_PHOTO_DIR):
         sample = base64.b64encode(open(os.path.join(COMPANION_PHOTO_DIR, photo), "rb").read()).decode()[:2000]
         if sample in src: fail(f"a Swordsman's Companion photo ({photo}) is still embedded; it must not be published")
 
-print(f"guards {len(guards)}, remedies {len(remedies)}, photos {len(photos)}, clips {len(clips)}/{len(needed)}")
+print(f"guards {len(guards)}, remedies {len(remedies)}, photos {len(photos)}, clips {len(clips)}/{len(needed)} ({len(first_with)} distinct recordings)")
 if missing: print(f"  {len(missing)} calls have no clip yet and will use the phone's voice: {' '.join(missing[:8])}{' …' if len(missing) > 8 else ''}")
 print(f"  {SOURCE} and {OUT}: {len(src.encode()) // 1024} KB")
 if args.dry_run: print("Dry run, nothing written.")

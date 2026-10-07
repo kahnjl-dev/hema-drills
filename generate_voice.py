@@ -8,6 +8,7 @@ edits without touching takes you've already approved. Identical phrases are gene
 Clip keys (the app looks clips up by these):
   g-<guard>-<lang>     guard call, e.g. g-finD-it
   r-<remedy>-<lang>    defense-and-riposte (or thrust) call, e.g. r-tutta-cross-en
+  s-<drill>-<n>-<lang> step n of a fixed drill, e.g. s-cutting-1-en (guard steps reuse g-<guard>)
   done-en              end of session
 """
 import argparse, io, json, os, shutil, sys
@@ -35,6 +36,10 @@ def phrases(data):
         it = ", ".join(l if i == 0 else l[0].lower() + l[1:] for i, l in enumerate(r["it"]))
         en = ", then ".join(l if i == 0 else l[0].lower() + l[1:] for i, l in enumerate(r["en"]))  # matches the app's enJoined
         out += [(f"r-{r['id']}-it", "it", it), (f"r-{r['id']}-en", "en", en)]
+    for drill in data.get("drills", []):
+        for i, step in enumerate(drill.get("steps", [])):
+            if "guard" in step: continue  # spoken with the guard's own clip
+            out += [(f"s-{drill['id']}-{i}-it", "it", step["it"]), (f"s-{drill['id']}-{i}-en", "en", step["en"])]
     out.append(("done-en", "en", "Done"))
     return [(k, lang, TEXT_OVERRIDES.get(k, text)) for k, lang, text in out]
 
