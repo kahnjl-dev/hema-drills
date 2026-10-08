@@ -40,11 +40,14 @@ for dr in data.get("drills", []):
 
 # --- Guard photos ---
 photos = {}
-for g in guards.values():
-    name = g["photo"]
+# Guard photos, plus any drill step's own photo (img).
+photo_names = [g["photo"] for g in guards.values()]
+for dr in data.get("drills", []):
+    photo_names += [st["img"] for _, st in drill_clips.drill_steps(dr) if "img" in st]
+for name in photo_names:
     if name in photos: continue
     path = os.path.join(PHOTO_DIR, name + ".jpg")
-    if not os.path.exists(path): fail(f"missing photo {path} (guard photo '{name}')")
+    if not os.path.exists(path): fail(f"missing photo {path} ('{name}')")
     w, h = Image.open(path).size
     photos[name] = {"src": "data:image/jpeg;base64," + base64.b64encode(open(path, "rb").read()).decode(), "w": w, "h": h}
 

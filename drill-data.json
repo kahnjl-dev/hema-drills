@@ -373,7 +373,7 @@
       "ends": "bicorno"
     }
   ],
-  "_drills": "Selectable drills. type 'remedies' = random guard then a remedy from that guard. 'sequence' = fixed steps spoken in order and looped; once=true steps are only called on the first round. 'outcomes' = each round picks one outcome (balanced) and speaks its steps; vs is shown on screen. 'staged' = random calls from a pool that grows: items with stage n join after perStage*(n-1) calls. A step shows a guard photo (guard, or show to display a guard while speaking its own text) or the cut diagram (cut, ends); otherwise text only.",
+  "_drills": "Selectable drills. type 'remedies' = random guard then a remedy from that guard. 'sequence' = fixed steps spoken in order and looped; once=true steps are only called on the first round. 'outcomes' = each round picks one outcome (balanced) and speaks its steps; vs is shown on screen. 'staged' = random calls from a pool that grows: items with stage n join after perStage*(n-1) calls. A step shows a guard photo (guard, or show to display a guard while speaking its own text) or the cut diagram (cut, ends); otherwise text only. A step may also name its own photo (img = a file in photos/, without .jpg).",
   "drills": [
     {
       "id": "remedies",
@@ -567,58 +567,72 @@
         {
           "it": "Posta longa, mano e piede destro avanti",
           "en": "Long guard, right hand and foot forward",
-          "once": true
+          "once": true,
+          "img": "fourguards-A"
         },
         {
           "it": "Fissa la linea",
           "en": "Set your line",
-          "once": true
+          "once": true,
+          "img": "fourguards-A"
         },
         {
           "it": "Volta stabile, posta longa",
-          "en": "Stable turn, long guard"
+          "en": "Stable turn, long guard",
+          "img": "fourguards-B"
         },
         {
           "it": "Volta stabile, posta longa",
-          "en": "Stable turn, long guard"
+          "en": "Stable turn, long guard",
+          "img": "fourguards-C"
         },
         {
           "it": "Mezza volta, posta longa",
-          "en": "Half turn, long guard"
+          "en": "Half turn, long guard",
+          "img": "fourguards-D"
         },
         {
           "it": "Volta stabile, dente di zenghiaro",
-          "en": "Stable turn, boar's tooth"
+          "en": "Stable turn, boar's tooth",
+          "img": "fourguards-E"
         },
         {
           "it": "Volta stabile, dente di zenghiaro",
-          "en": "Stable turn, boar's tooth"
+          "en": "Stable turn, boar's tooth",
+          "img": "fourguards-F"
         },
         {
           "it": "Mezza volta, dente di zenghiaro",
-          "en": "Half turn, boar's tooth"
+          "en": "Half turn, boar's tooth",
+          "img": "fourguards-G"
         },
         {
           "it": "Volta stabile, posta frontale",
-          "en": "Stable turn, front guard"
+          "en": "Stable turn, front guard",
+          "img": "fourguards-H"
         },
         {
           "it": "Volta stabile, porta di ferro",
-          "en": "Stable turn, iron door"
+          "en": "Stable turn, iron door",
+          "img": "fourguards-I"
         },
         {
           "it": "Mezza volta, posta frontale",
-          "en": "Half turn, front guard"
+          "en": "Half turn, front guard",
+          "img": "fourguards-J"
         },
         {
           "it": "Volta stabile, porta di ferro",
-          "en": "Stable turn, iron door"
+          "en": "Stable turn, iron door",
+          "img": "fourguards-K"
         },
         {
           "it": "Volta stabile, posta longa",
-          "en": "Stable turn, long guard"
+          "en": "Stable turn, long guard",
+          "img": "fourguards-B"
         }
-      ]
+      ],
+      "photos": "TML p. 70-71, photo sequence A-K (Ilpo), by Jari Juslin"
     },
     {
       "id": "siohparry",
@@ -630,23 +644,26 @@
         {
           "it": "Posta della spada in una mano",
           "en": "Guard of the sword in one hand",
-          "once": true
+          "once": true,
+          "img": "sioh-guard-front"
         },
         {
           "it": "Coverta in fenestra, accrescere fora di strada",
           "en": "Parry: rising cut into fenestra, step to the side",
-          "cut": "rs"
+          "img": "sioh-parry-side-a"
         },
         {
           "it": "Mandritto fendente",
           "en": "Strike: forehand downward cut",
-          "cut": "mf"
+          "img": "sioh-p1-strike-a"
         },
         {
           "it": "Torna in guardia",
-          "en": "Back to guard"
+          "en": "Back to guard",
+          "img": "sioh-guard-front"
         }
-      ]
+      ],
+      "photos": "TML p. 148-149, by Jari Juslin"
     },
     {
       "id": "siohplays",
