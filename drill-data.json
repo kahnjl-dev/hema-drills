@@ -674,7 +674,8 @@
       "start": [
         {
           "it": "Posta della spada in una mano",
-          "en": "Guard of the sword in one hand"
+          "en": "Guard of the sword in one hand",
+          "img": "sioh-guard-front"
         }
       ],
       "outcomes": [
@@ -686,12 +687,12 @@
             {
               "it": "Coverta in fenestra, accrescere fora di strada",
               "en": "Parry: rising cut into fenestra, step to the side",
-              "cut": "rs"
+              "img": "sioh-p1-parry-a"
             },
             {
               "it": "Battuta larga, mandritto fendente alla testa",
               "en": "Beaten wide: strike him in the head",
-              "cut": "mf"
+              "img": "sioh-p1-strike-a"
             }
           ]
         },
@@ -703,11 +704,12 @@
             {
               "it": "Coverta in fenestra, accrescere fora di strada",
               "en": "Parry: rising cut into fenestra, step to the side",
-              "cut": "rs"
+              "img": "sioh-p2-stuck-a"
             },
             {
               "it": "Incrosada ferma, entra e colpisci",
-              "en": "Stuck in the middle: enter and strike"
+              "en": "Stuck in the middle: enter and strike",
+              "img": "sioh-p2-enter-a"
             }
           ]
         },
@@ -719,7 +721,7 @@
             {
               "it": "Coverta in fenestra, accrescere fora di strada",
               "en": "Parry: rising cut into fenestra, step to the side",
-              "cut": "rs"
+              "img": "sioh-parry-side-a"
             },
             {
               "it": "Si ritira, inseguilo",
@@ -735,7 +737,7 @@
             {
               "it": "Coverta in fenestra, accrescere fora di strada",
               "en": "Parry: rising cut into fenestra, step to the side",
-              "cut": "rs"
+              "img": "sioh-parry-side-a"
             },
             {
               "it": "Spinge dentro, abbraccialo",
@@ -751,7 +753,7 @@
             {
               "it": "Coverta in fenestra, accrescere fora di strada",
               "en": "Parry: rising cut into fenestra, step to the side",
-              "cut": "rs"
+              "img": "sioh-parry-side-a"
             },
             {
               "it": "Prendi il pomo, togli la spada",
@@ -767,7 +769,7 @@
             {
               "it": "Coverta in fenestra, accrescere fora di strada",
               "en": "Parry: rising cut into fenestra, step to the side",
-              "cut": "rs"
+              "img": "sioh-parry-side-a"
             },
             {
               "it": "Gira il gomito, taglia la gola",
@@ -799,15 +801,17 @@
             {
               "it": "Rompere di punta, accrescere",
               "en": "Break the thrust, step to the side",
-              "cut": "mf"
+              "img": "sioh-p89-break-a"
             },
             {
               "it": "Controlla il gomito, entra e abbatti",
-              "en": "Control his elbow, step in for the takedown"
+              "en": "Control his elbow, step in for the takedown",
+              "img": "sioh-p89-elbow-a"
             }
           ]
         }
-      ]
+      ],
+      "photos": "TML p. 148-151, by Jari Juslin. Plays 3-7 and 10 have no book photos of the follow-up."
     },
     {
       "id": "grips",
@@ -819,7 +823,8 @@
       "start": [
         {
           "it": "Presa normale",
-          "en": "Normal grip"
+          "en": "Normal grip",
+          "img": "grip-normal"
         }
       ],
       "pool": [
@@ -827,37 +832,43 @@
           "it": "Presa normale",
           "en": "Normal grip",
           "id": "normal",
-          "stage": 1
+          "stage": 1,
+          "img": "grip-normal"
         },
         {
           "it": "Spada in arme, mezza spada",
           "en": "Sword in armour: hand to the middle of the blade",
           "id": "armour",
-          "stage": 1
+          "stage": 1,
+          "img": "grip-armour"
         },
         {
           "it": "Punta lunga, al pomo",
           "en": "Long thrust: hand to the pommel",
           "id": "pommel",
-          "stage": 2
+          "stage": 2,
+          "img": "grip-pommel"
         },
         {
           "it": "Come un'ascia",
           "en": "Like an axe: hold it by the blade",
           "id": "axe",
-          "stage": 3
+          "stage": 3,
+          "img": "grip-axe"
         },
         {
           "it": "Da lanciare",
           "en": "Ready to throw",
           "id": "throw",
-          "stage": 4
+          "stage": 4,
+          "img": "grip-throw"
         },
         {
           "it": "Spada in una mano",
           "en": "Sword in one hand",
           "id": "onehand",
-          "stage": 4
+          "stage": 4,
+          "img": "grip-onehand"
         },
         {
           "it": "Cambia mano",
@@ -865,7 +876,8 @@
           "id": "switch",
           "stage": 5
         }
-      ]
+      ],
+      "photos": "TML p. 140, panels A-C (Joni and Guy), by Jari Juslin"
     }
   ],
   "_attacks": "Beginner list: from each guard, only the attacks it is set up to throw, no defenses. Same shape as remedies. Endpoints follow the opposite-corner rule; tutta's options follow Guy's email (chambered for mandritto sottano, fendente and the thrust); bicorno's thrust ends in bicorno.",
