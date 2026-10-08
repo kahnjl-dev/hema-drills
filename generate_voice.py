@@ -20,9 +20,12 @@ if sys.platform == "win32":
 DATA_FILE, OUT_DIR = "drill-data.json", "voice-clips"
 MANIFEST = os.path.join(OUT_DIR, "manifest.json")
 MODEL = "eleven_v3"
-# Jordan's picks: Adam for English, Arnold for Italian, with the model's default delivery
+# Delivery: the model's default
 # (no stability override) and no added punctuation, so calls sound plain rather than excited.
-VOICE = {"it": "VR6AewLTigWG4xSOukaG", "en": "pNInz6obpgDQGcFmaJgB"}
+# Kallari (2noihuQpglcWf1H9jf7J) for both languages, chosen Oct 2026; replaced Adam (English) and
+# Arnold (Italian), whose clips are in archive/voice-clips-adam-arnold/. Backup: Thomas CITWdMEsnRduEUkNWXQv.
+KALLARI = "2noihuQpglcWf1H9jf7J"
+VOICE = {"it": KALLARI, "en": KALLARI}
 SETTINGS = None
 TEXT_OVERRIDES = {"done-en": "Done, well fought"}
 # 64 kbps keeps the embedded file small; spoken calls don't need more.
