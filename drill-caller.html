@@ -785,7 +785,7 @@ input[type="range"] { width: 100%; accent-color: var(--gold-fill); height: 32px;
     { id: "en-it", label: "English, then Italian", short: "EN → IT",  order: ["en", "it"] },
     { id: "en",    label: "English only",          short: "English",  order: ["en"] }
   ];
-  var settings = { speed: 4, duration: "open", lang: "en-it", drill: "remedies" };
+  var settings = { speed: 4, duration: "open", lang: "en-it", drill: null };  // no saved drill: start at the top of the list
   try {
     var saved = JSON.parse(localStorage.getItem("drill-caller-settings") || "null");
     if (saved) settings = Object.assign(settings, saved);
