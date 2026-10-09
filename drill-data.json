@@ -94,7 +94,7 @@
         "Mandritto fendente"
       ],
       "en": [
-        "Cross in frontale, pass out of the way",
+        "Cross in front guard, pass out of the way",
         "Forehand downward cut over the arm"
       ],
       "cut": "mf",
@@ -142,7 +142,7 @@
         "Mandritto fendente"
       ],
       "en": [
-        "Cross in frontale",
+        "Cross in front guard",
         "Forehand downward cut"
       ],
       "cut": "mf",
@@ -649,7 +649,7 @@
         },
         {
           "it": "Coverta in fenestra, accrescere fora di strada",
-          "en": "Parry: rising cut into fenestra, step to the side",
+          "en": "Parry: rising cut into window guard, step to the side",
           "img": "sioh-parry-side-a"
         },
         {
@@ -686,7 +686,7 @@
           "steps": [
             {
               "it": "Coverta in fenestra, accrescere fora di strada",
-              "en": "Parry: rising cut into fenestra, step to the side",
+              "en": "Parry: rising cut into window guard, step to the side",
               "img": "sioh-p1-parry-a"
             },
             {
@@ -703,7 +703,7 @@
           "steps": [
             {
               "it": "Coverta in fenestra, accrescere fora di strada",
-              "en": "Parry: rising cut into fenestra, step to the side",
+              "en": "Parry: rising cut into window guard, step to the side",
               "img": "sioh-p2-stuck-a"
             },
             {
@@ -720,7 +720,7 @@
           "steps": [
             {
               "it": "Coverta in fenestra, accrescere fora di strada",
-              "en": "Parry: rising cut into fenestra, step to the side",
+              "en": "Parry: rising cut into window guard, step to the side",
               "img": "sioh-parry-side-a"
             },
             {
@@ -736,7 +736,7 @@
           "steps": [
             {
               "it": "Coverta in fenestra, accrescere fora di strada",
-              "en": "Parry: rising cut into fenestra, step to the side",
+              "en": "Parry: rising cut into window guard, step to the side",
               "img": "sioh-parry-side-a"
             },
             {
@@ -752,7 +752,7 @@
           "steps": [
             {
               "it": "Coverta in fenestra, accrescere fora di strada",
-              "en": "Parry: rising cut into fenestra, step to the side",
+              "en": "Parry: rising cut into window guard, step to the side",
               "img": "sioh-parry-side-a"
             },
             {
@@ -768,7 +768,7 @@
           "steps": [
             {
               "it": "Coverta in fenestra, accrescere fora di strada",
-              "en": "Parry: rising cut into fenestra, step to the side",
+              "en": "Parry: rising cut into window guard, step to the side",
               "img": "sioh-parry-side-a"
             },
             {

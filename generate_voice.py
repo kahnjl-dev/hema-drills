@@ -22,10 +22,13 @@ MANIFEST = os.path.join(OUT_DIR, "manifest.json")
 MODEL = "eleven_v3"
 # Delivery: the model's default
 # (no stability override) and no added punctuation, so calls sound plain rather than excited.
-# Kallari (2noihuQpglcWf1H9jf7J) for both languages, chosen Oct 2026; replaced Adam (English) and
-# Arnold (Italian), whose clips are in archive/voice-clips-adam-arnold/. Backup: Thomas CITWdMEsnRduEUkNWXQv.
+# Italian: Kallari (chosen Oct 2026). English: Rafael (chosen Oct 2026, replacing Kallari; those English
+# clips are in archive/voice-clips-kallari-en/). Earlier Adam/Arnold clips: archive/voice-clips-adam-arnold/.
+# Tried and passed over for English: Pharoah 3 (Qziuou6kCJ2R3w53L2Zs), Lane (QEmx0xOfbXnI0Aa5YAqD).
+# Backup: Thomas (CITWdMEsnRduEUkNWXQv).
 KALLARI = "2noihuQpglcWf1H9jf7J"
-VOICE = {"it": KALLARI, "en": KALLARI}
+RAFAEL = "UGRSRN5yIPiE70HOrdJx"
+VOICE = {"it": KALLARI, "en": RAFAEL}
 SETTINGS = None
 TEXT_OVERRIDES = {"done-en": "Done, well fought"}
 # 64 kbps keeps the embedded file small; spoken calls don't need more.
