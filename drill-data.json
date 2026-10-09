@@ -373,194 +373,13 @@
       "ends": "bicorno"
     }
   ],
-  "_drills": "Selectable drills. type 'remedies' = random guard then a remedy from that guard. 'sequence' = fixed steps spoken in order and looped; once=true steps are only called on the first round. 'outcomes' = each round picks one outcome (balanced) and speaks its steps; vs is shown on screen. 'staged' = random calls from a pool that grows: items with stage n join after perStage*(n-1) calls. A step shows a guard photo (guard, or show to display a guard while speaking its own text) or the cut diagram (cut, ends); otherwise text only. A step may also name its own photo (img = a file in photos/, without .jpg).",
+  "_drills": "Selectable drills. type 'remedies' = random guard then a remedy from that guard. 'sequence' = fixed steps spoken in order and looped; once=true steps are only called on the first round. 'outcomes' = each round picks one outcome (balanced) and speaks its steps; vs is shown on screen. 'staged' = random calls from a pool that grows: items with stage n join after perStage*(n-1) calls. A step shows a guard photo (guard, or show to display a guard while speaking its own text) or the cut diagram (cut, ends); otherwise text only. A step may also name its own photo (img = a file in photos/, without .jpg). Drills are listed basic to advanced; group is the section header shown above them in the picker.",
   "drills": [
-    {
-      "id": "remedies",
-      "type": "remedies",
-      "name": "Guards and remedies",
-      "about": "Withdraw to a guard, then the defense and riposte the book teaches for it. Randomized, every guard practiced evenly."
-    },
-    {
-      "id": "basics",
-      "type": "remedies",
-      "source": "attacks",
-      "name": "Basics: guards and attacks",
-      "about": "Beginner version. A guard, then an attack that guard is set up to throw, then a new guard. No defenses."
-    },
-    {
-      "id": "blocks",
-      "type": "glossary",
-      "name": "Building blocks",
-      "about": "An audio index: each term is spoken with its meaning. The written index is under the ⓘ button, top right."
-    },
-    {
-      "id": "cutting",
-      "type": "sequence",
-      "name": "Cutting Drill, Part One",
-      "pages": "TML p. 119",
-      "about": "Full and half cuts through all four corners, with a pass on every cut.",
-      "steps": [
-        {
-          "it": "Posta di donna destra",
-          "en": "Woman's guard, right",
-          "guard": "donnaD",
-          "once": true
-        },
-        {
-          "it": "Mandritto fendente, passare",
-          "en": "Full forehand downward cut, with a pass",
-          "cut": "mf",
-          "ends": "dente"
-        },
-        {
-          "it": "Roverso sottano di falso, passare",
-          "en": "Backhand rising cut, false edge, with a pass",
-          "cut": "rs",
-          "ends": "longa"
-        },
-        {
-          "it": "Posta di donna destra",
-          "en": "Woman's guard, right",
-          "guard": "donnaD"
-        },
-        {
-          "it": "Mandritto fendente in posta longa, passare",
-          "en": "Half forehand downward cut, with a pass",
-          "cut": "mf",
-          "ends": "longa"
-        },
-        {
-          "it": "Posta di donna la sinestra",
-          "en": "Woman's guard, left",
-          "guard": "donnaS"
-        },
-        {
-          "it": "Roverso fendente, passare",
-          "en": "Full backhand downward cut, with a pass",
-          "cut": "rf",
-          "ends": "tutta"
-        },
-        {
-          "it": "Mandritto sottano di falso, passare",
-          "en": "Forehand rising cut, false edge, with a pass",
-          "cut": "ms",
-          "ends": "longa"
-        },
-        {
-          "it": "Posta di donna la sinestra",
-          "en": "Woman's guard, left",
-          "guard": "donnaS"
-        },
-        {
-          "it": "Roverso fendente in posta longa, passare",
-          "en": "Half backhand downward cut, with a pass",
-          "cut": "rf",
-          "ends": "longa"
-        },
-        {
-          "it": "Posta di donna destra",
-          "en": "Woman's guard, right",
-          "guard": "donnaD"
-        }
-      ]
-    },
-    {
-      "id": "updown",
-      "type": "sequence",
-      "name": "Up, down, around, around",
-      "pages": "Swordschool wiki; sequence from Jordan",
-      "about": "Wrist and arm handling drill, no steps: two downward cuts and a rising cut on the right, then the same on the left.",
-      "steps": [
-        {
-          "it": "Mandritto fendente",
-          "en": "Forehand downward cut",
-          "cut": "mf"
-        },
-        {
-          "it": "Mandritto fendente",
-          "en": "Forehand downward cut",
-          "cut": "mf"
-        },
-        {
-          "it": "Mandritto sottano",
-          "en": "Forehand rising cut",
-          "cut": "ms"
-        },
-        {
-          "it": "Roverso fendente",
-          "en": "Backhand downward cut",
-          "cut": "rf"
-        },
-        {
-          "it": "Roverso fendente",
-          "en": "Backhand downward cut",
-          "cut": "rf"
-        },
-        {
-          "it": "Roverso sottano",
-          "en": "Backhand rising cut",
-          "cut": "rs"
-        }
-      ]
-    },
-    {
-      "id": "farfalle",
-      "type": "sequence",
-      "name": "Farfalle di Ferro, parts 1 and 2",
-      "pages": "Swordschool wiki, Farfalle di Ferro",
-      "about": "The iron butterfly: downward cut, high thrust from the other side, downward cut, then the mirror image from the left.",
-      "steps": [
-        {
-          "it": "Posta di donna destra",
-          "en": "Woman's guard, right",
-          "guard": "donnaD"
-        },
-        {
-          "it": "Mandritto fendente, passare",
-          "en": "Forehand downward cut, with a pass",
-          "cut": "mf",
-          "ends": "dente"
-        },
-        {
-          "it": "Roverso punta, alta",
-          "en": "High backhand thrust",
-          "cut": "punta"
-        },
-        {
-          "it": "Roverso fendente, passare",
-          "en": "Backhand downward cut, with a pass",
-          "cut": "rf",
-          "ends": "tutta"
-        },
-        {
-          "it": "Posta di donna la sinestra",
-          "en": "Woman's guard, left",
-          "guard": "donnaS"
-        },
-        {
-          "it": "Roverso fendente, passare",
-          "en": "Backhand downward cut, with a pass",
-          "cut": "rf",
-          "ends": "tutta"
-        },
-        {
-          "it": "Mandritto punta, alta",
-          "en": "High forehand thrust",
-          "cut": "punta"
-        },
-        {
-          "it": "Mandritto fendente, passare",
-          "en": "Forehand downward cut, with a pass",
-          "cut": "mf",
-          "ends": "dente"
-        }
-      ]
-    },
     {
       "id": "fourguards",
       "type": "sequence",
       "name": "Four guards drill (unarmed)",
+      "group": "Foundations",
       "pages": "TML p. 69-70; confirmed against the wiki video (no narration)",
       "about": "No sword. Longa, boar's tooth, frontale and porta di ferro, linked by stable and half turns. Each round ends on the other side; just keep mirroring.",
       "steps": [
@@ -635,9 +454,258 @@
       "photos": "TML p. 70-71, photo sequence A-K (Ilpo), by Jari Juslin"
     },
     {
+      "id": "updown",
+      "type": "sequence",
+      "name": "Up, down, around, around",
+      "group": "Foundations",
+      "pages": "Swordschool wiki; sequence from Jordan",
+      "about": "Wrist and arm handling drill, no steps: two downward cuts and a rising cut on the right, then the same on the left.",
+      "steps": [
+        {
+          "it": "Mandritto fendente",
+          "en": "Forehand downward cut",
+          "cut": "mf"
+        },
+        {
+          "it": "Mandritto fendente",
+          "en": "Forehand downward cut",
+          "cut": "mf"
+        },
+        {
+          "it": "Mandritto sottano",
+          "en": "Forehand rising cut",
+          "cut": "ms"
+        },
+        {
+          "it": "Roverso fendente",
+          "en": "Backhand downward cut",
+          "cut": "rf"
+        },
+        {
+          "it": "Roverso fendente",
+          "en": "Backhand downward cut",
+          "cut": "rf"
+        },
+        {
+          "it": "Roverso sottano",
+          "en": "Backhand rising cut",
+          "cut": "rs"
+        }
+      ]
+    },
+    {
+      "id": "cutting",
+      "type": "sequence",
+      "name": "Cutting Drill, Part One",
+      "group": "Cutting and handling",
+      "pages": "TML p. 119",
+      "about": "Full and half cuts through all four corners, with a pass on every cut.",
+      "steps": [
+        {
+          "it": "Posta di donna destra",
+          "en": "Woman's guard, right",
+          "guard": "donnaD",
+          "once": true
+        },
+        {
+          "it": "Mandritto fendente, passare",
+          "en": "Full forehand downward cut, with a pass",
+          "cut": "mf",
+          "ends": "dente"
+        },
+        {
+          "it": "Roverso sottano di falso, passare",
+          "en": "Backhand rising cut, false edge, with a pass",
+          "cut": "rs",
+          "ends": "longa"
+        },
+        {
+          "it": "Posta di donna destra",
+          "en": "Woman's guard, right",
+          "guard": "donnaD"
+        },
+        {
+          "it": "Mandritto fendente in posta longa, passare",
+          "en": "Half forehand downward cut, with a pass",
+          "cut": "mf",
+          "ends": "longa"
+        },
+        {
+          "it": "Posta di donna la sinestra",
+          "en": "Woman's guard, left",
+          "guard": "donnaS"
+        },
+        {
+          "it": "Roverso fendente, passare",
+          "en": "Full backhand downward cut, with a pass",
+          "cut": "rf",
+          "ends": "tutta"
+        },
+        {
+          "it": "Mandritto sottano di falso, passare",
+          "en": "Forehand rising cut, false edge, with a pass",
+          "cut": "ms",
+          "ends": "longa"
+        },
+        {
+          "it": "Posta di donna la sinestra",
+          "en": "Woman's guard, left",
+          "guard": "donnaS"
+        },
+        {
+          "it": "Roverso fendente in posta longa, passare",
+          "en": "Half backhand downward cut, with a pass",
+          "cut": "rf",
+          "ends": "longa"
+        },
+        {
+          "it": "Posta di donna destra",
+          "en": "Woman's guard, right",
+          "guard": "donnaD"
+        }
+      ]
+    },
+    {
+      "id": "farfalle",
+      "type": "sequence",
+      "name": "Farfalle di Ferro, parts 1 and 2",
+      "group": "Cutting and handling",
+      "pages": "Swordschool wiki, Farfalle di Ferro",
+      "about": "The iron butterfly: downward cut, high thrust from the other side, downward cut, then the mirror image from the left.",
+      "steps": [
+        {
+          "it": "Posta di donna destra",
+          "en": "Woman's guard, right",
+          "guard": "donnaD"
+        },
+        {
+          "it": "Mandritto fendente, passare",
+          "en": "Forehand downward cut, with a pass",
+          "cut": "mf",
+          "ends": "dente"
+        },
+        {
+          "it": "Roverso punta, alta",
+          "en": "High backhand thrust",
+          "cut": "punta"
+        },
+        {
+          "it": "Roverso fendente, passare",
+          "en": "Backhand downward cut, with a pass",
+          "cut": "rf",
+          "ends": "tutta"
+        },
+        {
+          "it": "Posta di donna la sinestra",
+          "en": "Woman's guard, left",
+          "guard": "donnaS"
+        },
+        {
+          "it": "Roverso fendente, passare",
+          "en": "Backhand downward cut, with a pass",
+          "cut": "rf",
+          "ends": "tutta"
+        },
+        {
+          "it": "Mandritto punta, alta",
+          "en": "High forehand thrust",
+          "cut": "punta"
+        },
+        {
+          "it": "Mandritto fendente, passare",
+          "en": "Forehand downward cut, with a pass",
+          "cut": "mf",
+          "ends": "dente"
+        }
+      ]
+    },
+    {
+      "id": "grips",
+      "type": "staged",
+      "name": "Six grips handling drill",
+      "group": "Cutting and handling",
+      "pages": "wiki Sword handling drill 3; Guy's narration; TML p. 139-140",
+      "about": "Fiore's six ways of holding the sword, called at random. Starts with two grips and adds one every few calls; then switch hands.",
+      "perStage": 8,
+      "start": [
+        {
+          "it": "Presa normale",
+          "en": "Normal grip",
+          "img": "grip-normal"
+        }
+      ],
+      "pool": [
+        {
+          "it": "Presa normale",
+          "en": "Normal grip",
+          "id": "normal",
+          "stage": 1,
+          "img": "grip-normal"
+        },
+        {
+          "it": "Spada in arme, mezza spada",
+          "en": "Sword in armour: hand to the middle of the blade",
+          "id": "armour",
+          "stage": 1,
+          "img": "grip-armour"
+        },
+        {
+          "it": "Punta lunga, al pomo",
+          "en": "Long thrust: hand to the pommel",
+          "id": "pommel",
+          "stage": 2,
+          "img": "grip-pommel"
+        },
+        {
+          "it": "Come un'ascia",
+          "en": "Like an axe: hold it by the blade",
+          "id": "axe",
+          "stage": 3,
+          "img": "grip-axe"
+        },
+        {
+          "it": "Da lanciare",
+          "en": "Ready to throw",
+          "id": "throw",
+          "stage": 4,
+          "img": "grip-throw"
+        },
+        {
+          "it": "Spada in una mano",
+          "en": "Sword in one hand",
+          "id": "onehand",
+          "stage": 4,
+          "img": "grip-onehand"
+        },
+        {
+          "it": "Cambia mano",
+          "en": "Switch hands",
+          "id": "switch",
+          "stage": 5
+        }
+      ],
+      "photos": "TML p. 140, panels A-C (Joni and Guy), by Jari Juslin"
+    },
+    {
+      "id": "basics",
+      "type": "remedies",
+      "source": "attacks",
+      "name": "Basics: guards and attacks",
+      "group": "Random calls",
+      "about": "Beginner version. A guard, then an attack that guard is set up to throw, then a new guard. No defenses."
+    },
+    {
+      "id": "remedies",
+      "type": "remedies",
+      "name": "Guards and remedies",
+      "group": "Random calls",
+      "about": "Withdraw to a guard, then the defense and riposte the book teaches for it. Randomized, every guard practiced evenly."
+    },
+    {
       "id": "siohparry",
       "type": "sequence",
       "name": "Sword in one hand: the parry",
+      "group": "Sword in one hand",
       "pages": "TML p. 147-151; wiki video, Guy's narration",
       "about": "Rear-weighted guard with the sword in one hand. Parry up into fenestra stepping to the side, turn around the middle of the sword to strike, back to guard.",
       "steps": [
@@ -669,6 +737,7 @@
       "id": "siohplays",
       "type": "outcomes",
       "name": "Sword in one hand: the plays",
+      "group": "Sword in one hand",
       "pages": "TML p. 147-151; wiki videos for plays 1-10, Guy's narration",
       "about": "Parry from the guard of the sword in one hand, then a follow-up from Fiore's plays: what you do depends on what his sword does. Best with a partner.",
       "start": [
@@ -814,70 +883,11 @@
       "photos": "TML p. 148-151, by Jari Juslin. Plays 3-7 and 10 have no book photos of the follow-up."
     },
     {
-      "id": "grips",
-      "type": "staged",
-      "name": "Six grips handling drill",
-      "pages": "wiki Sword handling drill 3; Guy's narration; TML p. 139-140",
-      "about": "Fiore's six ways of holding the sword, called at random. Starts with two grips and adds one every few calls; then switch hands.",
-      "perStage": 8,
-      "start": [
-        {
-          "it": "Presa normale",
-          "en": "Normal grip",
-          "img": "grip-normal"
-        }
-      ],
-      "pool": [
-        {
-          "it": "Presa normale",
-          "en": "Normal grip",
-          "id": "normal",
-          "stage": 1,
-          "img": "grip-normal"
-        },
-        {
-          "it": "Spada in arme, mezza spada",
-          "en": "Sword in armour: hand to the middle of the blade",
-          "id": "armour",
-          "stage": 1,
-          "img": "grip-armour"
-        },
-        {
-          "it": "Punta lunga, al pomo",
-          "en": "Long thrust: hand to the pommel",
-          "id": "pommel",
-          "stage": 2,
-          "img": "grip-pommel"
-        },
-        {
-          "it": "Come un'ascia",
-          "en": "Like an axe: hold it by the blade",
-          "id": "axe",
-          "stage": 3,
-          "img": "grip-axe"
-        },
-        {
-          "it": "Da lanciare",
-          "en": "Ready to throw",
-          "id": "throw",
-          "stage": 4,
-          "img": "grip-throw"
-        },
-        {
-          "it": "Spada in una mano",
-          "en": "Sword in one hand",
-          "id": "onehand",
-          "stage": 4,
-          "img": "grip-onehand"
-        },
-        {
-          "it": "Cambia mano",
-          "en": "Switch hands",
-          "id": "switch",
-          "stage": 5
-        }
-      ],
-      "photos": "TML p. 140, panels A-C (Joni and Guy), by Jari Juslin"
+      "id": "blocks",
+      "type": "glossary",
+      "name": "Building blocks",
+      "group": "Reference",
+      "about": "An audio index: each term is spoken with its meaning. The written index is under the ⓘ button, top right."
     }
   ],
   "_attacks": "Beginner list: from each guard, only the attacks it is set up to throw, no defenses. Same shape as remedies. Endpoints follow the opposite-corner rule; tutta's options follow Guy's email (chambered for mandritto sottano, fendente and the thrust); bicorno's thrust ends in bicorno.",
