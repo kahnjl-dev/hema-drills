@@ -47,7 +47,8 @@ def phrases(data):
     for drill in data.get("drills", []):
         for key, st in drill_steps(drill):
             if step_uses_guard_clip(st): continue
-            out += [(f"{key}-it", "it", st["it"]), (f"{key}-en", "en", st["en"])]
+            if st.get("it"): out.append((f"{key}-it", "it", st["it"]))  # no genuine Italian term: English only
+            out.append((f"{key}-en", "en", st["en"]))
     for t in data.get("terms", []):
         if t["it"]: out.append((f"t-{t['id']}-it", "it", t["it"]))
         out.append((f"t-{t['id']}-en", "en", term_spoken_en(t)))

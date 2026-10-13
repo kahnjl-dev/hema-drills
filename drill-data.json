@@ -90,7 +90,7 @@
       "vs": "Against a cut",
       "pages": "97-99",
       "it": [
-        "Incrosare in frontale, passare fora di strada",
+        "Incrosare, posta frontale, passare fora di strada",
         "Mandritto fendente"
       ],
       "en": [
@@ -138,7 +138,7 @@
       "vs": "Against a cut",
       "pages": "138",
       "it": [
-        "Incrosare in frontale",
+        "Incrosare, posta frontale",
         "Mandritto fendente"
       ],
       "en": [
@@ -154,7 +154,7 @@
       "vs": "Against a cut",
       "pages": "91-93",
       "it": [
-        "Rebattere con roverso sottano, accrescere fora di strada",
+        "Rebattere, roverso sottano, accrescere fora di strada",
         "Mandritto fendente"
       ],
       "en": [
@@ -170,7 +170,7 @@
       "vs": "Against a cut",
       "pages": "88, 91-93",
       "it": [
-        "Rebattere con roverso sottano, accrescere fora di strada",
+        "Rebattere, roverso sottano, accrescere fora di strada",
         "Mandritto fendente"
       ],
       "en": [
@@ -264,7 +264,7 @@
       "vs": "Against a cut",
       "pages": "102",
       "it": [
-        "Rebattere di sotto col falso",
+        "Rebattere, falso",
         "Mandritto fendente"
       ],
       "en": [
@@ -384,13 +384,12 @@
       "about": "No sword. Longa, boar's tooth, frontale and porta di ferro, linked by stable and half turns. Each round ends on the other side; just keep mirroring.",
       "steps": [
         {
-          "it": "Posta longa, mano e piede destro avanti",
+          "it": "Posta longa",
           "en": "Long guard, right hand and foot forward",
           "once": true,
           "img": "fourguards-A"
         },
         {
-          "it": "Fissa la linea",
           "en": "Set your line",
           "once": true,
           "img": "fourguards-A"
@@ -514,7 +513,7 @@
           "ends": "dente"
         },
         {
-          "it": "Roverso sottano di falso, passare",
+          "it": "Roverso sottano, falso, passare",
           "en": "Backhand rising cut, false edge, with a pass",
           "cut": "rs",
           "ends": "longa"
@@ -525,7 +524,7 @@
           "guard": "donnaD"
         },
         {
-          "it": "Mandritto fendente in posta longa, passare",
+          "it": "Mandritto fendente, posta longa, passare",
           "en": "Half forehand downward cut, with a pass",
           "cut": "mf",
           "ends": "longa"
@@ -542,7 +541,7 @@
           "ends": "tutta"
         },
         {
-          "it": "Mandritto sottano di falso, passare",
+          "it": "Mandritto sottano, falso, passare",
           "en": "Forehand rising cut, false edge, with a pass",
           "cut": "ms",
           "ends": "longa"
@@ -553,7 +552,7 @@
           "guard": "donnaS"
         },
         {
-          "it": "Roverso fendente in posta longa, passare",
+          "it": "Roverso fendente, posta longa, passare",
           "en": "Half backhand downward cut, with a pass",
           "cut": "rf",
           "ends": "longa"
@@ -585,7 +584,7 @@
           "ends": "dente"
         },
         {
-          "it": "Roverso punta, alta",
+          "it": "Punta",
           "en": "High backhand thrust",
           "cut": "punta"
         },
@@ -607,7 +606,7 @@
           "ends": "tutta"
         },
         {
-          "it": "Mandritto punta, alta",
+          "it": "Punta",
           "en": "High forehand thrust",
           "cut": "punta"
         },
@@ -629,56 +628,48 @@
       "perStage": 8,
       "start": [
         {
-          "it": "Presa normale",
           "en": "Normal grip",
           "img": "grip-normal"
         }
       ],
       "pool": [
         {
-          "it": "Presa normale",
           "en": "Normal grip",
           "id": "normal",
           "stage": 1,
           "img": "grip-normal"
         },
         {
-          "it": "Spada in arme, mezza spada",
           "en": "Sword in armour: hand to the middle of the blade",
           "id": "armour",
           "stage": 1,
           "img": "grip-armour"
         },
         {
-          "it": "Punta lunga, al pomo",
           "en": "Long thrust: hand to the pommel",
           "id": "pommel",
           "stage": 2,
           "img": "grip-pommel"
         },
         {
-          "it": "Come un'ascia",
           "en": "Like an axe: hold it by the blade",
           "id": "axe",
           "stage": 3,
           "img": "grip-axe"
         },
         {
-          "it": "Da lanciare",
           "en": "Ready to throw",
           "id": "throw",
           "stage": 4,
           "img": "grip-throw"
         },
         {
-          "it": "Spada in una mano",
           "en": "Sword in one hand",
           "id": "onehand",
           "stage": 4,
           "img": "grip-onehand"
         },
         {
-          "it": "Cambia mano",
           "en": "Switch hands",
           "id": "switch",
           "stage": 5
@@ -710,13 +701,12 @@
       "about": "Rear-weighted guard with the sword in one hand. Parry up into fenestra stepping to the side, turn around the middle of the sword to strike, back to guard.",
       "steps": [
         {
-          "it": "Posta della spada in una mano",
           "en": "Guard of the sword in one hand",
           "once": true,
           "img": "sioh-guard-front"
         },
         {
-          "it": "Coverta in fenestra, accrescere fora di strada",
+          "it": "Coverta, posta di fenestra, accrescere fora di strada",
           "en": "Parry: rising cut into window guard, step to the side",
           "img": "sioh-parry-side-a"
         },
@@ -726,7 +716,6 @@
           "img": "sioh-p1-strike-a"
         },
         {
-          "it": "Torna in guardia",
           "en": "Back to guard",
           "img": "sioh-guard-front"
         }
@@ -742,7 +731,6 @@
       "about": "Parry from the guard of the sword in one hand, then a follow-up from Fiore's plays: what you do depends on what his sword does. Best with a partner.",
       "start": [
         {
-          "it": "Posta della spada in una mano",
           "en": "Guard of the sword in one hand",
           "img": "sioh-guard-front"
         }
@@ -754,12 +742,11 @@
           "vs": "Against a cut",
           "steps": [
             {
-              "it": "Coverta in fenestra, accrescere fora di strada",
+              "it": "Coverta, posta di fenestra, accrescere fora di strada",
               "en": "Parry: rising cut into window guard, step to the side",
               "img": "sioh-p1-parry-a"
             },
             {
-              "it": "Battuta larga, mandritto fendente alla testa",
               "en": "Beaten wide: strike him in the head",
               "img": "sioh-p1-strike-a"
             }
@@ -771,12 +758,11 @@
           "vs": "Against a cut",
           "steps": [
             {
-              "it": "Coverta in fenestra, accrescere fora di strada",
+              "it": "Coverta, posta di fenestra, accrescere fora di strada",
               "en": "Parry: rising cut into window guard, step to the side",
               "img": "sioh-p2-stuck-a"
             },
             {
-              "it": "Incrosada ferma, entra e colpisci",
               "en": "Stuck in the middle: enter and strike",
               "img": "sioh-p2-enter-a"
             }
@@ -788,12 +774,11 @@
           "vs": "Against a cut",
           "steps": [
             {
-              "it": "Coverta in fenestra, accrescere fora di strada",
+              "it": "Coverta, posta di fenestra, accrescere fora di strada",
               "en": "Parry: rising cut into window guard, step to the side",
               "img": "sioh-parry-side-a"
             },
             {
-              "it": "Si ritira, inseguilo",
               "en": "Stuck, and he pulls back: chase him"
             }
           ]
@@ -804,12 +789,11 @@
           "vs": "Against a cut",
           "steps": [
             {
-              "it": "Coverta in fenestra, accrescere fora di strada",
+              "it": "Coverta, posta di fenestra, accrescere fora di strada",
               "en": "Parry: rising cut into window guard, step to the side",
               "img": "sioh-parry-side-a"
             },
             {
-              "it": "Spinge dentro, abbraccialo",
               "en": "Stuck, and he pushes in: wrap him up"
             }
           ]
@@ -820,12 +804,11 @@
           "vs": "Against a cut",
           "steps": [
             {
-              "it": "Coverta in fenestra, accrescere fora di strada",
+              "it": "Coverta, posta di fenestra, accrescere fora di strada",
               "en": "Parry: rising cut into window guard, step to the side",
               "img": "sioh-parry-side-a"
             },
             {
-              "it": "Prendi il pomo, togli la spada",
               "en": "Beat it away: catch his pommel, take his sword"
             }
           ]
@@ -836,12 +819,11 @@
           "vs": "Against a cut",
           "steps": [
             {
-              "it": "Coverta in fenestra, accrescere fora di strada",
+              "it": "Coverta, posta di fenestra, accrescere fora di strada",
               "en": "Parry: rising cut into window guard, step to the side",
               "img": "sioh-parry-side-a"
             },
             {
-              "it": "Gira il gomito, taglia la gola",
               "en": "He comes in: turn his elbow, get behind, cut the throat"
             }
           ]
@@ -852,12 +834,10 @@
           "vs": "Against a cut to the head",
           "steps": [
             {
-              "it": "Coverta, spada a terra",
               "en": "Parry: drive his sword to the ground",
               "cut": "mf"
             },
             {
-              "it": "Controlla e colpisci",
               "en": "Control him and strike"
             }
           ]
@@ -873,7 +853,6 @@
               "img": "sioh-p89-break-a"
             },
             {
-              "it": "Controlla il gomito, entra e abbatti",
               "en": "Control his elbow, step in for the takedown",
               "img": "sioh-p89-elbow-a"
             }
@@ -1381,5 +1360,6 @@
       "en": "Riposte",
       "means": "Your strike after a successful defense."
     }
-  ]
+  ],
+  "_italian": "Italian lines use only genuine terms from Fiore and The Medieval Longsword (guards, blows, footwork, defense names), joined by commas. Never invent Italian phrases (Guy Windsor, Oct 2026). A step with no genuine Italian term has no 'it' field and is spoken in English in every language mode."
 }

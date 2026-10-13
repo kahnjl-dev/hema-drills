@@ -36,7 +36,7 @@ for dr in data.get("drills", []):
     for key, st in drill_clips.drill_steps(dr):
         for field in ("guard", "show", "ends"):
             if field in st and st[field] not in guards: fail(f"{key}: unknown {field} '{st[field]}'")
-        if "guard" not in st and not (st.get("it") and st.get("en")): fail(f"{key}: a step needs a guard or its own it/en text")
+        if "guard" not in st and not st.get("en"): fail(f"{key}: a step needs a guard or its own English text (Italian is optional)")
 
 # --- Guard photos ---
 photos = {}
