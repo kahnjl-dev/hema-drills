@@ -135,6 +135,10 @@ body {
   margin: 14px 0 0;
   min-height: 1.4em;
 }
+/* Welcome text for first-time users; replaced by the first call. Smaller so the controls still fit on a phone. */
+.gloss.intro { font-size: clamp(0.98rem, 4.2vw, 1.15rem); line-height: 1.4; }
+.gloss.intro span { display: block; }
+.gloss.intro span + span { margin-top: 0.5em; }
 .gap {
   height: 6px;
   background: var(--line);
@@ -329,7 +333,7 @@ input[type="range"] { width: 100%; accent-color: var(--gold-fill); height: 32px;
       <div class="figure" id="figure" aria-hidden="true"></div>
       <div id="callWrap">
         <p class="call" id="call"><span class="line">Drill Caller</span></p>
-        <p class="gloss" id="gloss">Pick your settings, set the phone down, and tap Start.</p>
+        <p class="gloss intro" id="gloss"><span>An app to help you practice various longsword drills in fixed or random sequence.</span><span>Choose a drill, set the pace and language, put the phone down, and let it call the moves so you can train without watching a screen.</span><span>With permission, based on Guy Windsor’s <i>The Medieval Longsword</i>.</span></p>
       </div>
     </div>
     <div class="gap" aria-hidden="true"><span id="gapBar"></span></div>
@@ -1037,6 +1041,7 @@ input[type="range"] { width: 100%; accent-color: var(--gold-fill); height: 32px;
     primaryLines.forEach(function (l) {
       var s = document.createElement("span"); s.className = "line"; s.textContent = l; call.appendChild(s);
     });
+    $("gloss").className = "gloss";
     $("gloss").textContent = secondary;
   }
   function setGap(p) { $("gapBar").style.width = (p * 100).toFixed(1) + "%"; }
