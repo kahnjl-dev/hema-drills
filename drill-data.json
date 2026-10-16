@@ -373,7 +373,7 @@
       "ends": "bicorno"
     }
   ],
-  "_drills": "Selectable drills. type 'remedies' = random guard then a remedy from that guard. 'sequence' = fixed steps spoken in order and looped; once=true steps are only called on the first round. 'outcomes' = each round picks one outcome (balanced) and speaks its steps; vs is shown on screen. 'staged' = random calls from a pool that grows: items with stage n join after perStage*(n-1) calls. A step shows a guard photo (guard, or show to display a guard while speaking its own text) or the cut diagram (cut, ends); otherwise text only. A step may also name its own photo (img = a file in photos/, without .jpg). Drills are listed basic to advanced; group is the section header shown above them in the picker.",
+  "_drills": "Selectable drills. type 'remedies' = random guard then a remedy from that guard. 'sequence' = fixed steps spoken in order and looped; once=true steps are only called on the first round. 'outcomes' = each round picks one outcome (balanced) and speaks its steps; vs is shown on screen. 'staged' = random calls from a pool that grows: items with stage n join after perStage*(n-1) calls. A step shows a guard photo (guard, or show to display a guard while speaking its own text) or the cut diagram (cut, ends); otherwise text only. A step may also name its own photo (img = a file in photos/, without .jpg). Drills are listed basic to advanced; group is the section header shown above them in the picker. chain=true (remedies type): the next call starts from the guard the last one ended in, unless that guard is 3+ calls ahead of the least-practiced one; then withdraw to the least-practiced guard.",
   "drills": [
     {
       "id": "fourguards",
@@ -683,7 +683,8 @@
       "source": "attacks",
       "name": "Basics: guards and attacks",
       "group": "Random calls",
-      "about": "Beginner version. A guard, then an attack that guard is set up to throw, then a new guard. No defenses."
+      "about": "Beginner version. A guard, then an attack that guard is set up to throw. The next attack usually starts from where the last one ended; now and then you withdraw to a new guard. No defenses.",
+      "chain": true
     },
     {
       "id": "remedies",
@@ -869,7 +870,7 @@
       "about": "An audio index: each term is spoken with its meaning. The written index is under the ⓘ button, top right."
     }
   ],
-  "_attacks": "Beginner list: from each guard, only the attacks it is set up to throw, no defenses. Same shape as remedies. Endpoints follow the opposite-corner rule; tutta's options follow Guy's email (chambered for mandritto sottano, fendente and the thrust); bicorno's thrust ends in bicorno.",
+  "_attacks": "Beginner list: from each guard, only the attacks it is set up to throw, no defenses. Same shape as remedies. Endpoints follow the opposite-corner rule; tutta's options follow Guy's email (chambered for mandritto sottano, fendente and the thrust); bicorno's thrust ends in bicorno. No thrust from donna destra: the app shows it forward-weighted, and TML p. 102 calls that thrust awkward (rear-weighted is easy). Coda longa can 'pass forwards with a fendente' (p. 90-91).",
   "attacks": [
     {
       "id": "a-donnaD-mf",
@@ -883,19 +884,6 @@
       ],
       "cut": "mf",
       "ends": "dente"
-    },
-    {
-      "id": "a-donnaD-thrust",
-      "guard": "donnaD",
-      "vs": "Your attack",
-      "it": [
-        "Punta, passare"
-      ],
-      "en": [
-        "Thrust, with a pass"
-      ],
-      "cut": "punta",
-      "ends": "longa"
     },
     {
       "id": "a-donnaS-rf",
@@ -1039,6 +1027,19 @@
       ],
       "cut": "punta",
       "ends": "longa"
+    },
+    {
+      "id": "a-coda-mf",
+      "guard": "coda",
+      "vs": "Your attack",
+      "it": [
+        "Mandritto fendente, passare"
+      ],
+      "en": [
+        "Forehand downward cut, with a pass"
+      ],
+      "cut": "mf",
+      "ends": "dente"
     },
     {
       "id": "a-dente-rs",
